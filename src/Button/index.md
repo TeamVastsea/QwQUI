@@ -5,7 +5,7 @@ group:
   title: 基础
 ---
 
-# Foo
+# Button
 
 This is an example component.
 
