@@ -7,7 +7,7 @@ group:
 
 # Button
 
-This is an example component.
+按钮组件
 
 <code src="./demos/size.tsx"></code>
 
