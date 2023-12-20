@@ -26,7 +26,7 @@ export default function Button(props: ButtonProp) {
   return(
     <button
       className={
-        `btn btn--${props.size} ${props.block && 'btn--block'} ${props.fill && 'btn--fill'}`}
+        `btn btn--${props.size === undefined ? "md" : props.size} ${props.block && 'btn--block'} ${props.fill && 'btn--fill'}`}
         type={"button"}
         onClick={props.onClick}
       >
