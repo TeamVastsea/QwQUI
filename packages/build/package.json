@@ -1,0 +1,17 @@
+{
+  "name": "@qwqui/build",
+  "version": "1.0.0",
+  "description": "",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.7.2",
+    "vite-plugin-dts": "^4.2.2"
+  }
+}

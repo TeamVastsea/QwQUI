@@ -1,0 +1,28 @@
+{
+  "name": "@qwqui/button",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "vite build && tsup ./index.ts --dts --format cjs,esm",
+    "clean:dist": "rimraf dist",
+    "clean:deps": "rimraf node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "18.3.1"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "@qwqui/build": [
+        "./packages/build"
+      ]
+    },
+    "esModuleInterop": true,
+    "moduleResolution": "Node"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "packages/**/*"
+  ]
+}
