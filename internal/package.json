@@ -14,5 +14,11 @@
     "camelcase": "^8.0.0",
     "dashify": "^2.0.0",
     "inquirer": "^11.0.2"
+  },
+  "devDependencies": {
+    "@types/dashify": "^1.0.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.7.2",
+    "fs-extra": "^11.2.0"
   }
 }

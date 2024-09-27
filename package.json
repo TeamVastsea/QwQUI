@@ -7,11 +7,13 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.7.0",
+    "esno": "^4.7.0",
     "rimraf": "^6.0.1"
   },
   "scripts": {
     "build": "pnpm --filter @qwqui/* build",
     "clean:dist": "pnpm --filter @qwqui/* clean:dist",
-    "clean:deps": "pnpm --filter @qwqui/* clean:deps"
+    "clean:deps": "pnpm --filter @qwqui/* clean:deps",
+    "create:comp": "esno internal/create-component.ts"
   }
 }

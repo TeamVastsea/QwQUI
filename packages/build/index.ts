@@ -1,7 +1,6 @@
 import { defineConfig, PluginOption } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { join, resolve, sep, } from 'node:path';
-import dts from 'vite-plugin-dts'
 
 export const cwd = () => process.cwd();
 export const absCwd = (...path: string[]) => join(cwd(), ...path);
@@ -34,6 +33,8 @@ export interface DefineBuildConfig {
   external?: (string | RegExp)[],
   plugins?: PluginOption[]
 }
+
+
 
 export const defineBuild = (config: DefineBuildConfig = {}) => {
   const basePath = absCwd();

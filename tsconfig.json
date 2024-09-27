@@ -11,9 +11,11 @@
     "moduleResolution": "Node"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/node_modules"
   ],
   "include": [
-    "packages/**/*"
+    "packages/**/*",
+    "internal/*"
   ]
 }
