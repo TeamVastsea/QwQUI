@@ -1,0 +1,24 @@
+{
+  "name": "@qwqui/build",
+  "version": "1.0.0",
+  "description": "",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rspack/core": "^1.0.7",
+    "@types/node": "^22.7.2",
+    "fast-glob": "^3.3.2"
+  },
+  "dependencies": {
+    "@rsbuild/plugin-react": "^1.0.2",
+    "@rslib/core": "^0.0.8",
+    "sass-embedded": "^1.79.3",
+    "scss": "^0.2.4"
+  }
+}

@@ -1,0 +1,65 @@
+on:
+  pull_request:
+
+name: "Test"
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    name: Unit Test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm test
+  type-test:
+    runs-on: ubuntu-latest
+    name: Type Test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm test:type
+  pub-dryrun:
+    runs-on: ubuntu-latest
+    name: Type Test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm build
+      - run: pnpm publish --dry-run --access=public --no-git-checks
+  

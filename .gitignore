@@ -1,9 +1,3 @@
 node_modules
-/dist
-/docs-dist
-/.idea
-/src/.umi-production/
-.dumi/tmp
-.dumi/tmp-test
-.dumi/tmp-production
-.DS_Store
+dist
+.rslib
