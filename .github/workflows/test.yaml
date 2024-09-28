@@ -44,7 +44,7 @@ jobs:
       - run: pnpm test:type
   build-dryrun:
     runs-on: ubuntu-latest
-    name: Site Build DryRun
+    name: Build DryRun
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -63,7 +63,7 @@ jobs:
       - run: pnpm build
   pub-dryrun:
     runs-on: ubuntu-latest
-    name: Type Test
+    name: Publish Dry run
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -80,5 +80,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - run: pnpm build
-      - run: pnpm publish --dry-run --access=public --no-git-checks
+      - run: pnpm publish -r --dry-run --access=public --no-git-checks
   
