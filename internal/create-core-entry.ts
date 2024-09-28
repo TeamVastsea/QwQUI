@@ -10,7 +10,6 @@ function app() {
     .filter(path => !statSync(join(COMPONENT_ROOT, path)).isFile())
     .filter(path => !blackList.some(name => path.includes(name)))
     .map(dir => `export * from './${dir}'`);
-  exportStmts.unshift(`import '../theme/index.scss'`);
   if (existsSync(join(__dirname, '../packages/components/index.ts'))) {
     unlinkSync(join(__dirname, '../packages/components/index.ts'))
   }

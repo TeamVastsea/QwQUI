@@ -8,6 +8,9 @@
       ],
       "@qwqui/*": [
         "./packages/components/*"
+      ],
+      "@qwqui/theme": [
+        "./packages/theme/index.scss"
       ]
     },
     "esModuleInterop": true,

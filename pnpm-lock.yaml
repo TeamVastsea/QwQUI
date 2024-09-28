@@ -104,6 +104,9 @@ importers:
 
   packages/components/button:
     dependencies:
+      '@qwqui/theme':
+        specifier: workspace:^
+        version: link:../../theme
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -113,6 +116,8 @@ importers:
       react:
         specifier: 18.3.1
         version: 18.3.1
+
+  packages/theme: {}
 
 packages:
 

@@ -1,7 +1,7 @@
 import { defineConfig, RslibConfig } from '@rslib/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
-import { join, sep, } from 'node:path';
+import { join, resolve, sep, } from 'node:path';
 
 export interface DefineBuildConfig {
   plugins?: RslibConfig['plugins']
@@ -42,10 +42,17 @@ export const defineBuild = (config: DefineBuildConfig = {}) => {
       bundle: true
     }
   }
+  const root = join(__dirname, '../../')
   config.plugins = config?.plugins ?? [];
   config.plugins.push(
     pluginReact(),
-    pluginSass()
+    pluginSass({
+      sassLoaderOptions: {
+        sassOptions: {
+
+        }
+      }
+    })
   )
   return defineConfig({
     plugins: config.plugins,
@@ -71,12 +78,16 @@ export const defineBuild = (config: DefineBuildConfig = {}) => {
     ],
     source: {
       entry: {
-        index: absCwd('index.ts')
+        index: absCwd('index.ts'),
+      },
+      alias: {
+        '@qwqui/*': resolve(__dirname, '../components'),
+        '@qwqui/theme$': resolve(__dirname, '../theme')
       }
     },
     output: {
       cleanDistPath: 'auto',
-      externals: config.external ?? []
+      externals: config.external ?? [],
     },
   })
 }
