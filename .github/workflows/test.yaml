@@ -42,9 +42,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - run: pnpm test:type
-  pub-dryrun:
+  build-dryrun:
     runs-on: ubuntu-latest
-    name: Type Test
+    name: Build DryRun
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -61,5 +61,24 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - run: pnpm build
-      - run: pnpm publish --dry-run --access=public --no-git-checks
+  pub-dryrun:
+    runs-on: ubuntu-latest
+    name: Publish Dry run
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm build
+      - run: pnpm publish -r --dry-run --access=public --no-git-checks
   

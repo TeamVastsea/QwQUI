@@ -10,7 +10,7 @@ function app() {
   const exportStmts = dirs
     .filter(path => !statSync(join(COMPONENT_ROOT, path)).isFile())
     .filter(path => !blackList.some(name => path.includes(name)))
-    .map(dir => `export * from './${dir}'`);
+    .map(dir => `export * from './${dir}/index.ts'`);
   const entites = fg.sync([
     '**/*.scss'
   ], {

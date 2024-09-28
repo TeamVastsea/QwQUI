@@ -105,7 +105,7 @@ export const defineBuild = (config: DefineBuildConfig = {}) => {
           ]
         }
       }
-    }
+    },
   })
 }
 

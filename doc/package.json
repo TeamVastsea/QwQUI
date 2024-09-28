@@ -1,17 +1,23 @@
 {
-  "name": "qwqui-doc",
+  "name": "@qwqui/doc",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "rspress dev",
     "build": "rspress build",
-    "preview": "rspress preview"
+    "preview": "rspress preview",
+    "clean:dist": "rimraf doc_build",
+    "clean:deps": "rimraf node_modules"
   },
   "dependencies": {
     "@qwqui/core": "workspace:^",
+    "@qwqui/theme": "workspace:^",
+    "@rspress/plugin-preview": "^1.31.1",
     "rspress": "^1.31.0"
   },
   "devDependencies": {
-    "@types/node": "^16"
+    "@types/node": "^16",
+    "sass-embedded": "^1.79.3",
+    "sass-loader": "^16.0.2"
   }
 }
