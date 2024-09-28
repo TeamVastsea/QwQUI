@@ -60,9 +60,7 @@ export const componentTemplate = (name: string) => {
   return `import React from 'react';
 export const ${name} = () => {
   return (
-    <>
-      hello world
-    </>
+    <></>
   )
 }`
 }
@@ -99,6 +97,16 @@ export const tsconfig = () => {
 `
 }
 
+
+export const unitTestFile = (name: string) => {
+  return `import * as Rect from 'react';
+import { act, render } from '@testing-library/react'
+import { ${name} } from '..';
+describe('${name}', () => {
+  it.todo('should define');
+})`
+}
+
 export const useTemplates = (root:string, kebabCaseName: string, camelcaseName:string) => {
   const componentPath = join(root, kebabCaseName);
   return [
@@ -125,6 +133,10 @@ export const useTemplates = (root:string, kebabCaseName: string, camelcaseName:s
     [
       join(componentPath, 'tsconfig.json'),
       tsconfig()
+    ],
+    [
+      join(componentPath, '__test__', `${kebabCaseName}.test.tsx`),
+      unitTestFile(camelcaseName)
     ]
   ]
 }
