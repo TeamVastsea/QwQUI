@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@microsoft/api-extractor": "^7.47.9",
     "@rsbuild/plugin-sass": "^1.0.1",
     "@rslib/core": "^0.0.8",
     "@swc/jest": "^0.2.36",
@@ -22,7 +23,9 @@
     "build": "pnpm --filter !@qwqui/core build && pnpm --filter @qwqui/core build",
     "clean:dist": "pnpm --filter @qwqui/* clean:dist",
     "clean:deps": "pnpm --filter @qwqui/* clean:deps",
-    "create:comp": "esno internal/create-component.ts"
+    "create:comp": "esno internal/create-component.ts",
+    "dev": "pnpm -C doc dev",
+    "build:site": "pnpm --filter @qwqui/doc build"
   },
   "devDependencies": {
     "@types/jest": "^29.5.13"
