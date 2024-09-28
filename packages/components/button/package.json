@@ -5,7 +5,8 @@
   "scripts": {
     "build": "rslib build",
     "clean:dist": "rimraf dist .rslib",
-    "clean:deps": "rimraf node_modules"
+    "clean:deps": "rimraf node_modules",
+    "test": "jest button"
   },
   "keywords": [],
   "author": "",
