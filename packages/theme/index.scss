@@ -1,6 +1,2 @@
-:root {
-  --bg: red;
-  --bg2: blue;
-}
-
-$bg: var(--bg);
+@import './token.scss';
+@import './color.scss';
