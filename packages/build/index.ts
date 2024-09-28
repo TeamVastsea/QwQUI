@@ -1,10 +1,16 @@
-import { defineConfig, PluginOption } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import { join, resolve, sep, } from 'node:path';
+import { defineConfig, RslibConfig } from '@rslib/core';
+import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
+import { join, sep, } from 'node:path';
+
+export interface DefineBuildConfig {
+  plugins?: RslibConfig['plugins']
+  external?: (string | RegExp)[]
+}
+
 
 export const cwd = () => process.cwd();
 export const absCwd = (...path: string[]) => join(cwd(), ...path);
-
 function splitVar(varName: string) {
   const reg = /[A-Z]{2,}(?=[A-Z][a-z]+|[0-9]|[^a-zA-Z0-9])|[A-Z]?[a-z]+|[A-Z]|[0-9]/g;
   return varName.match(reg) || <string[]>[];
@@ -29,51 +35,49 @@ const compName = (path: string) => camelCase(
   path.split(sep).at(-1) ?? '', true
 );
 
-export interface DefineBuildConfig {
-  external?: (string | RegExp)[],
-  plugins?: PluginOption[]
-}
-
-
 
 export const defineBuild = (config: DefineBuildConfig = {}) => {
-  const basePath = absCwd();
-  const componentName = compName(basePath);
-  console.log(absCwd('tsconfig.json'));
-  if (!config.plugins) {
-    config.plugins = [];
+  const shared = {
+    dts: {
+      bundle: true
+    }
   }
-  if (!config.external) {
-    config.external = []
-  }
-  config.external.push('react', 'react-dom')
+  config.plugins = config?.plugins ?? [];
   config.plugins.push(
-    react()
-  );
+    pluginReact(),
+    pluginSass()
+  )
   return defineConfig({
-    ...config,
-    publicDir: false,
-    build: {
-      rollupOptions: {
-        external: config.external,
+    plugins: config.plugins,
+    lib: [
+      {
+        ...shared,
+        format: 'esm',
         output: {
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
+          distPath: {
+            css: '.',
+          },
+        },
+      },
+      {
+        ...shared,
+        format: 'cjs',
+        output: {
+          distPath: {
+            css: '.',
           }
         }
       },
-      lib: {
-        name: componentName,
-        entry: absCwd('index.ts'),
-        fileName: 'index',
-        formats: ['es', 'cjs', 'umd', 'system']
-      },
-    },
-    resolve: {
-      alias: {
-        '@qwqui/build': resolve(__dirname, 'index.ts'),
+    ],
+    source: {
+      entry: {
+        index: absCwd('index.ts')
       }
+    },
+    output: {
+      cleanDistPath: 'auto',
+      externals: config.external ?? []
     },
   })
 }
+

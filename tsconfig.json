@@ -5,10 +5,14 @@
     "paths": {
       "@qwqui/build": [
         "./packages/build"
+      ],
+      "@qwqui/*": [
+        "./packages/components/*"
       ]
     },
     "esModuleInterop": true,
-    "moduleResolution": "Node"
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
   },
   "exclude": [
     "node_modules",

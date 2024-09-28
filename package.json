@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "@rsbuild/plugin-sass": "^1.0.1",
+    "@rslib/core": "^0.0.8",
     "@types/react": "^18.3.9",
     "tsup": "^8.3.0",
+    "typescript": "^5.6.2",
     "vite": "^5.4.8",
     "vitest": "^2.1.1"
   },
@@ -11,7 +14,8 @@
     "rimraf": "^6.0.1"
   },
   "scripts": {
-    "build": "pnpm --filter @qwqui/* build",
+    "prebuild": "esno internal/create-core-entry.ts",
+    "build": "pnpm --filter !@qwqui/core build && pnpm --filter @qwqui/core build",
     "clean:dist": "pnpm --filter @qwqui/* clean:dist",
     "clean:deps": "pnpm --filter @qwqui/* clean:deps",
     "create:comp": "esno internal/create-component.ts"

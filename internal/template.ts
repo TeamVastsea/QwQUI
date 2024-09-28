@@ -6,20 +6,21 @@ return `{
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "vite build && tsup ./index.ts --dts --format cjs,esm",
-    "clean:dist": "rimraf dist",
+    "build": "rslib build",
+    "clean:dist": "rimraf dist .rslib",
     "clean:deps": "rimraf node_modules"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "exports": {
     ".": {
+      "import": "./dist/index.mjs",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "types": "./dist/index.d.mts"
     }
   },
   "files": [
@@ -31,22 +32,23 @@ return `{
 }`
 }
 export const buildFile = () => {
-  return `import { defineBuild } from '../../build';
+  return `import { defineBuild } from '@qwqui/build';
 export default defineBuild();`
 }
 
 export const tsConfigFile = () => {
   return `{
-  "extends": "../../../tsconfig.json",
-  "include": [
-    "./src/*",
-    "index.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "vite.config.mts",
-    "dist"
-  ]
+    "include": [
+      "index.ts",
+      "./**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "**/node_modules",
+      "rslib.config.ts",
+      "**/rslib.config.ts"
+    ],
+    "extends": "../../tsconfig.json"
 }`
 }
 
@@ -82,6 +84,21 @@ MIT
 `
 }
 
+
+export const tsconfig = () => {
+  return `{
+  "include": [
+    "index.ts",
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "../../../tsconfig.json"
+}  
+`
+}
+
 export const useTemplates = (root:string, kebabCaseName: string, camelcaseName:string) => {
   const componentPath = join(root, kebabCaseName);
   return [
@@ -90,7 +107,7 @@ export const useTemplates = (root:string, kebabCaseName: string, camelcaseName:s
       packagesJSON(kebabCaseName)
     ],
     [
-      join(componentPath, 'vite.config.mts'),
+      join(componentPath, 'rslib.config.ts'),
       buildFile()
     ],
     [
@@ -104,6 +121,10 @@ export const useTemplates = (root:string, kebabCaseName: string, camelcaseName:s
     [
       join(componentPath, 'README.md'),
       readmeTemplate(kebabCaseName)
+    ],
+    [
+      join(componentPath, 'tsconfig.json'),
+      tsconfig()
     ]
   ]
 }

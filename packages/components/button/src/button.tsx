@@ -3,8 +3,8 @@ import './style.scss'
 
 export const Button = () => {
   return (
-    <>
-      hello world
-    </>
+    <button className='btn'>
+      btn
+    </button>
   )
 }
