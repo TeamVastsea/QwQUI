@@ -1,0 +1,17 @@
+{
+  "name": "qwqui-doc",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "@qwqui/core": "workspace:^",
+    "rspress": "^1.31.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16"
+  }
+}
