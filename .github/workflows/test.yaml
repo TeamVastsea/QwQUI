@@ -4,10 +4,9 @@ on:
 name: "Test"
 
 jobs:
-
-  install-deps:
+  unit-test:
     runs-on: ubuntu-latest
-    name: Install Dependencies
+    name: Unit Test
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -23,45 +22,63 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
-
-  unit-test:
-    needs: install-deps
-    runs-on: ubuntu-latest
-    name: Unit Test
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-      - name: Run Unit Tests
-        run: pnpm test
-
+      - run: pnpm test
   type-test:
-    needs: install-deps 
     runs-on: ubuntu-latest
     name: Type Test
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Run Type Tests
-        run: pnpm test:type
-
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm test:type
   build-dryrun:
-    needs: install-deps
     runs-on: ubuntu-latest
     name: Build DryRun
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Build Project
-        run: pnpm build
-
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm build
   pub-dryrun:
-    needs: install-deps
     runs-on: ubuntu-latest
     name: Publish Dry run
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Build Project
-        run: pnpm build
-      - name: Publish Dry Run
-        run: pnpm publish -r --dry-run --access=public --no-git-checks
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm build
+      - run: pnpm publish -r --dry-run --access=public --no-git-checks
+  
