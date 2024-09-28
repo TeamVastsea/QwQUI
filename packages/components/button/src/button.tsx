@@ -1,10 +1,16 @@
 import React from 'react';
 import './style.scss'
 
-export const Button = () => {
+export const Button = (props: ButtonProps) => {
   return (
     <button>
-      Click!
+      {props.children}
     </button>
   )
+}
+
+export interface ButtonProps {
+  color?: string,
+  variant?: string,
+  children: React.ReactNode,
 }

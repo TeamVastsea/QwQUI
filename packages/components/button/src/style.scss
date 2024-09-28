@@ -1,5 +1,10 @@
 @import '@qwqui/theme';
 
-.btn {
-  background: $danger-100;
+:root {
+  --button-primary-color: var(--primary-500);
+  --button-primary-hover-color: var(--primary-600);
+  --button-primary-active-color: var(--primary-700);
+  --button-primary-disabled-color: var(--gray-300);
+  --button-primary-disabled-hover-color: var(--gray-300);
+  --button-primary-disabled-active-color: var(--gray-300);
 }

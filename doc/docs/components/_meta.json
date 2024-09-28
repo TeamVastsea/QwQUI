@@ -1,0 +1,9 @@
+[
+  {
+    "type": "dir",
+    "name": "button",
+    "label": "Button",
+    "collapsible": true,
+    "collapsed": false
+  }
+]
