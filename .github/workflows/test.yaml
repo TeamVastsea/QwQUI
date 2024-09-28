@@ -42,6 +42,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - run: pnpm test:type
+  build-dryrun:
+    runs-on: ubuntu-latest
+    name: Site Build DryRun
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm build
   pub-dryrun:
     runs-on: ubuntu-latest
     name: Type Test
