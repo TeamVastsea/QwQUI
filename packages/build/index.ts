@@ -2,6 +2,7 @@ import { defineConfig, RslibConfig } from '@rslib/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { join, resolve, sep, } from 'node:path';
+import rspack from '@rspack/core';
 
 export interface DefineBuildConfig {
   plugins?: RslibConfig['plugins']
@@ -89,6 +90,22 @@ export const defineBuild = (config: DefineBuildConfig = {}) => {
       cleanDistPath: 'auto',
       externals: config.external ?? [],
     },
+    tools: {
+      rspack: {
+        optimization: {
+          minimize: true,
+          minimizer: [
+            new rspack.LightningCssMinimizerRspackPlugin({
+              minimizerOptions: {
+                nonStandard: {
+
+                }
+              }
+            })
+          ]
+        }
+      }
+    }
   })
 }
 
