@@ -1,4 +1,5 @@
 @import './color.scss';
+@import './size.scss';
 /*
   scss 语义化变量
 */
@@ -200,3 +201,18 @@ $warning-600: var(--warning-600);
 $warning-700: var(--warning-700);
 $warning-800: var(--warning-800);
 $warning-900: var(--warning-900);
+
+
+$radius-xs: var(--radius-xs);
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+$radius-xl: var(--radius-xl);
+$radius-full: var(--radius-full);
+
+$breakpoint-xs: var(--breakpoint-xs);
+$breakpoint-sm: var(--breakpoint-sm);
+$breakpoint-md: var(--breakpoint-md);
+$breakpoint-lg: var(--breakpoint-lg);
+$breakpoint-xl: var(--breakpoint-xl);
+$breakpoint-xxl: var(--breakpoint-xxl);
