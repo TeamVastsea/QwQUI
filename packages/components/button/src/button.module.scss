@@ -1,0 +1,48 @@
+@import "../../../theme/index";
+
+:root {    
+  --button-height-xs: 24px;
+  --button-height-sm: 29px;
+  --button-height-md: 34px;
+  --button-height-lg: 40px;
+  --button-height-xl: 49px;
+
+  --button-padding-xs: 9px;
+  --button-padding-sm: 11px;
+  --button-padding-md: 14px;
+  --button-padding-lg: 17px;
+  --button-padding-xl: 20px;
+  
+  --button-font-size-xs: 9px;
+  --button-font-size-sm: 11px;
+  --button-font-size-md: 14px;
+  --button-font-size-lg: 17px;
+  --button-font-size-xl: 20px;
+  
+  --button-radius-xs: var(--radius-xs);
+  --button-radius-sm: var(--radius-sm);
+  --button-radius-md: var(--radius-md);
+  --button-radius-lg: var(--radius-lg);
+  --button-radius-xl: var(--radius-xl);
+  --button-radius-full: var(--radius-full);
+
+  --color: #000;
+  --background-color: var(--blue-300);
+  --background-color-hover: var(--blue-200);
+  --background-color-active: var(--blue-400);
+}
+
+.button {
+  color: var(--color);
+  background-color: var(--background-color);
+  
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: var(--background-color-hover);
+  }
+  
+  &:active {
+    background-color: var(--background-color-active);
+  }
+}
