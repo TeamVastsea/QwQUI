@@ -26,7 +26,9 @@
   --button-radius-xl: var(--radius-xl);
   --button-radius-full: var(--radius-full);
 
-  --color: #000;
+  --color: var(--gray-800);
+  --color-hover: var(--gray-700);
+  --color-active: var(--gray-900);
   --background-color: var(--blue-300);
   --background-color-hover: var(--blue-200);
   --background-color-active: var(--blue-400);
@@ -36,13 +38,15 @@
   color: var(--color);
   background-color: var(--background-color);
   
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
   
   &:hover {
     background-color: var(--background-color-hover);
+    color: var(--color-hover);
   }
   
   &:active {
     background-color: var(--background-color-active);
+    color: var(--color-active);
   }
 }
