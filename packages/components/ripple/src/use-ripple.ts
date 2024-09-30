@@ -1,5 +1,3 @@
-import React from "react";
-import { createRoot } from 'react-dom/client'
 import { RippleProps } from "./ripple";
 
 export const useRipple = (props: Omit<RippleProps, 'children'>) => {

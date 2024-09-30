@@ -3,7 +3,6 @@ import { useRipple } from './use-ripple';
 
 export const Ripple = (props: RippleProps) => {
   const {
-    children,
     opacity = 0.5,
     blur = 0,
     duration = 500,
@@ -40,7 +39,6 @@ export const Ripple = (props: RippleProps) => {
 }
 
 export interface RippleProps {
-  children: React.ReactNode;
   color?: string;
   opacity?: number;
   blur?: number;
