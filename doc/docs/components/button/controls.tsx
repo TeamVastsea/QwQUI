@@ -1,6 +1,5 @@
-import {useState} from "react";
-import {Button} from "@qwqui/core";
-import CodePreview from "@uiw/react-code-preview";
+import { useState } from "react";
+import { Button } from "@qwqui/core";
 
 export const ButtonControls = () => {
   const [color, setColor] = useState('blue');
@@ -10,7 +9,7 @@ export const ButtonControls = () => {
   const [strong, setStrong] = useState(false);
 
   const code = `
-import {Button} from "@qwqui/core";
+import { Button } from "@qwqui/core";
     
 ReactDOM.createRoot(_mount_).render(
   <div>
@@ -20,7 +19,7 @@ ReactDOM.createRoot(_mount_).render(
 `
 
   const codeStr = `
-import {Button} from "@qwqui/core";
+import { Button } from "@qwqui/core";
 
 function Demo() {
   return <Button color="${color}" size="${size}"${useCustomRadius ? ` radius="${radius}"` : ''}${strong ? ` strong={${strong}}` : ''}>Button</Button>;
@@ -74,8 +73,7 @@ function Demo() {
         </label>
       </div>
 
-
-      <CodePreview code={code} dependencies={{Button}} noCode/>
+      <Button color={color} size={size} radius={useCustomRadius ? radius : undefined} strong={strong}>Button</Button>
       <pre style={{backgroundColor: "var(--gray-50)", padding: 20, fontSize: 14}} className={'code'}>
         {codeStr}
       </pre>

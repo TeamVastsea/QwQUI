@@ -50,7 +50,7 @@
   color: var(--color);
   background-color: var(--background-color);
   
-  transition: background-color 0.2s, color 0.2s;
+  transition: all 0.2s;
   
   &:hover {
     background-color: var(--background-color-hover);
