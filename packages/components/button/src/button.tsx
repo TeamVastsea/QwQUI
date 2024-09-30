@@ -8,11 +8,11 @@ export const Button = (props: ButtonProps) => {
     if (props.radius != undefined) {
       return props.radius;
     }
-    
+
     if (props.size == 'md' || props.size == 'lg') {
       return 'lg';
     }
-    
+
     if (props.size == 'xl') {
       return 'xl'
     }
@@ -45,7 +45,7 @@ export interface ButtonProps {
   children: React.ReactNode,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
-  color?: 'gray' | 'red'| 'pink' | 'grape' | 'violet' | 'indigo' 
+  color?: 'gray' | 'red' | 'pink' | 'grape' | 'violet' | 'indigo'
     | 'blue' | 'cyan' | 'teal' | 'green' | 'lime' | 'yellow' | 'orange',
   strong?: boolean,
 }
