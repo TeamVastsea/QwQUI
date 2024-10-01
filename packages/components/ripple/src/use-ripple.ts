@@ -22,6 +22,7 @@ export const useRipple = (
         }
         bindElement.style.position = 'relative'
       }
+      surface.current.style.borderRadius = computedStyle.borderRadius
     }
   }, [surface])
   const magnitude = (x1: number, y1: number, x2: number, y2: number): number => {
