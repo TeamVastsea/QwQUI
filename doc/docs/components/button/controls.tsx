@@ -8,16 +8,6 @@ export const ButtonControls = () => {
   const [useCustomRadius, setUseCustomRadius] = useState(false);
   const [strong, setStrong] = useState(false);
 
-  const code = `
-import { Button } from "@qwqui/core";
-    
-ReactDOM.createRoot(_mount_).render(
-  <div>
-    <Button color="${color}" size="${size}" ${useCustomRadius && `radius="${radius}"`} strong={${strong}}>Button</Button>
-  </div>,
-);
-`
-
   const codeStr = `
 import { Button } from "@qwqui/core";
 
@@ -74,7 +64,7 @@ function Demo() {
       </div>
 
       <Button color={color} size={size} radius={useCustomRadius ? radius : undefined} strong={strong}>Button</Button>
-      <pre style={{backgroundColor: "var(--gray-50)", padding: 20, fontSize: 14}} className={'code'}>
+      <pre style={{backgroundColor: "var(--gray-50)", padding: 20, fontSize: 14, borderRadius: 5}} className={'code'}>
         {codeStr}
       </pre>
     </>

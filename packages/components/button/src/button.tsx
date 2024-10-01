@@ -18,20 +18,29 @@ export const Button = (props: ButtonProps) => {
     }
     return 'md';
   }
+  const clickHandler = () => {
+    if (props.onClick == null || props.disabled) {
+      return;
+    }
+
+    props.onClick();
+  }
 
   return (
     <div className={classes.root}>
       <button
+        onClick={clickHandler}
         className={classes.button}
         style={{
+          cursor: props.disabled ? 'not-allowed' : 'pointer',
           height: `var(--button-height-${size})`,
           padding: `0 var(--button-padding-${size})`,
           borderRadius: `var(--button-radius-${getRadius()})`,
           fontSize: `var(--button-font-size-${size})`,
           fontWeight: props.strong ? 800 : 600,
-          '--background-color': `var(--${color}-300)`,
-          '--background-color-hover': `var(--${color}-200)`,
-          '--background-color-active': `var(--${color}-400)`,
+          '--background-color': props.disabled ? 'var(--gray-300)' : `var(--${color}-300)`,
+          '--background-color-hover': props.disabled ? 'var(--gray-300)' : `var(--${color}-200)`,
+          '--background-color-active': props.disabled ? 'var(--gray-300)' : `var(--${color}-400)`,
         } as React.CSSProperties}>
         {props.children}
       </button>
@@ -41,8 +50,10 @@ export const Button = (props: ButtonProps) => {
 
 
 export interface ButtonProps {
+  children?: React.ReactNode,
+  onClick?: () => void,
+  disabled?: boolean,
   variant?: string,
-  children: React.ReactNode,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
   color?: 'gray' | 'red' | 'pink' | 'grape' | 'violet' | 'indigo'
