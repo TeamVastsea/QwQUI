@@ -38,3 +38,4 @@ For questions or feedback, feel free to reach out via issues or contact us direc
 
 - [Email: i@qwq.my](mailto:i@qwq.my)
 - [npmjs](https://www.npmjs.com/package/qwq-ui)
+- [Discord](https://discord/TnupyDahvr)
