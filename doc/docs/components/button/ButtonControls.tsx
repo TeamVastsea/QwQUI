@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@qwqui/core";
 
-export const ButtonControls = () => {
+export default function ButtonControls() {
   const [color, setColor] = useState('blue');
   const [size, setSize] = useState('md');
   const [radius, setRadius] = useState('md');
