@@ -8,7 +8,7 @@
   },
   {
     "type": "dir",
-    "name": "Ripple",
+    "name": "ripple",
     "label": "Ripple",
     "collapsible": true,
     "collapsed": false
