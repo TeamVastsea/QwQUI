@@ -4,7 +4,7 @@ import { useRipple } from './use-ripple';
 export const Ripple = (props: RippleProps) => {
   const {
     blur = 0,
-    duration = 500,
+    duration = 300,
     color = '#ffffff50',
     animationName = 'ease-out',
     endOpacity = 0

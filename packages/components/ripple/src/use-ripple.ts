@@ -76,6 +76,7 @@ export const useRipple = (
       ripple.style.filter = `blur(${blur})`
       setTimeout(() => {
         ripple.style.opacity = `${endOpacity}`;
+        console.log(endOpacity);
         ripple.style.filter = `blur(0px)`
         ripple.addEventListener('transitionend', () => {
           setTimeout(() => {
