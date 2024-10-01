@@ -4,10 +4,113 @@
 import {Ripple} from '@qwqui/core';
 
 export default function App(){
+  const handleClick = () => {
+    console.log('click!')
+  }
   return (
-    <div>
+    <div onClick={handleClick} style={{
+      width: '500px',
+      height: '500px'
+    }}>
       hello - world
       <Ripple />
+    </div>
+  )
+}
+```
+
+## 自定义颜色
+
+```tsx
+import {Ripple} from '@qwqui/core';
+
+export default function App(){
+  return (
+    <div style={{
+      width: '500px',
+      height: '500px',
+      borderRadius: '16px'
+    }}>
+      Ripple
+      <Ripple color="#66ccff" />
+    </div>
+  )
+}
+```
+
+## 自定义透明度
+
+```tsx
+import {Ripple} from '@qwqui/core';
+
+export default function App(){
+  return (
+    <div style={{
+      width: '500px',
+      height: '500px',
+    }}>
+      Ripple
+      <Ripple color="#66ccff50" endOpacity={0.25} />
+    </div>
+  )
+}
+```
+
+## 自定义过度时间
+
+```tsx
+import {Ripple} from '@qwqui/core';
+
+export default function App(){
+  return (
+    <div style={{
+      width: '500px',
+      height: '500px',
+      border: '8px solid #cc66ff',
+      borderRadius: '16px'
+    }}>
+      Ripple
+      <Ripple color="#66ccff" opacity={0.5} duration={3000}/>
+    </div>
+  )
+}
+```
+
+## 自定义模糊程度
+
+```tsx
+import {Ripple} from '@qwqui/core';
+
+export default function App(){
+  return (
+    <div style={{
+      width: '500px',
+      height: '500px',
+      border: '8px solid #cc66ff',
+      borderRadius: '16px'
+    }}>
+      Ripple
+      <Ripple blur="32px" />
+    </div>
+  )
+}
+```
+
+## 自定义动画名称
+
+```tsx
+import {Ripple} from '@qwqui/core';
+
+export default function App(){
+  return (
+    <div style={{
+      width: '500px',
+      height: '500px',
+      border: '8px solid #cc66ff',
+      borderRadius: '16px'
+    }}>
+      Ripple
+      <Ripple animation-name="linear"/>
     </div>
   )
 }

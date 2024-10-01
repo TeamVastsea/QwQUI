@@ -1,6 +1,15 @@
 import { RippleProps } from "./ripple";
 
-export const useRipple = (props: Omit<RippleProps, 'children'>) => {
+export const useRipple = (
+  props: RippleProps = {
+    color: '#ffffff50',
+    animationName: 'ease-out',
+    duration: 300,
+    blur: 0,
+    endOpacity: 0.5
+  }
+) => {
+  const { color, animationName, duration, blur, endOpacity } = props;
   let oldPosition = '';
   const magnitude = (x1: number, y1: number, x2: number, y2: number): number => {
     const deltaX = x1 - x2;
@@ -9,8 +18,7 @@ export const useRipple = (props: Omit<RippleProps, 'children'>) => {
     return Math.sqrt(deltaX ** 2 + deltaY ** 2);
   }
   const createElement = (
-    size: number, x: number, y: number, color: string,
-    opacity: number
+    size: number, x: number, y: number
   ) => {
     const el = document.createElement('div');
     el.style.position = 'absolute';
@@ -19,9 +27,9 @@ export const useRipple = (props: Omit<RippleProps, 'children'>) => {
     el.style.top = `${y}px`;
     el.style.left = `${x}px`;
     el.style.background = `${color}`;
-    el.style.opacity = `${opacity}`;
+    el.style.opacity = `0`;
     el.style.transform = `translate(-50%,-50%) scale(0)`;
-    el.style.transition = `transform ease-in 300ms`
+    el.style.transition = `transform ${animationName} ${duration}ms, opacity ${animationName} ${duration}ms`
     el.style.borderRadius = '100%'
     return el;
   }
@@ -38,21 +46,20 @@ export const useRipple = (props: Omit<RippleProps, 'children'>) => {
     return Math.max(topLeft, topRight, bottomLeft, bottomRight);
   }
   const add = (
-    ripperSurface: HTMLDivElement,
-    event: PointerEvent,
-    color: string = '#fff',
-    opacity: number = 0.5,
-    duration: number = 500
+    ripperSurface: HTMLElement,
+    bindElement: HTMLElement,
+    event: PointerEvent
   ) => {
-    const bindElement = ripperSurface.parentElement;
     const rippleWrapper = ripperSurface;
-
+    if (!bindElement.contains(rippleWrapper)) {
+      bindElement.appendChild(rippleWrapper);
+    }
     const { clientX, clientY } = event;
     const rect = bindElement.getBoundingClientRect()
     const x = clientX - rect.left;
     const y = clientY - rect.top;
-    const size = getDistance(x, y, rect) * 4;
-    const ripple = createElement(size, x, y, color, opacity);
+    const size = getDistance(x, y, rect) * 2;
+    const ripple = createElement(size, x, y);
     const computedStyle = window.getComputedStyle(bindElement);
 
     if (computedStyle.position === 'static') {
@@ -65,11 +72,20 @@ export const useRipple = (props: Omit<RippleProps, 'children'>) => {
     rippleWrapper.appendChild(ripple)
     requestAnimationFrame(() => {
       ripple.style.transform = `translate(-50%,-50%) scale(1)`;
+      ripple.style.opacity = `0.5`;
+      ripple.style.filter = `blur(${blur})`
       setTimeout(() => {
-        ripple.remove();
-        if (!rippleWrapper.children.length) {
-          bindElement.style.position = bindElement['_old_position'] ?? oldPosition
-        }
+        ripple.style.opacity = `${endOpacity}`;
+        ripple.style.filter = `blur(0px)`
+        ripple.addEventListener('transitionend', () => {
+          setTimeout(() => {
+            ripple.remove();
+            if (!rippleWrapper.children.length) {
+              bindElement.style.position = bindElement['_old_position'] ?? oldPosition
+              rippleWrapper.remove();
+            }
+          }, duration);
+        })
       }, duration);
     })
   }

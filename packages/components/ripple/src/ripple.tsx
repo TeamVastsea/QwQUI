@@ -1,32 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRipple } from './use-ripple';
 
 export const Ripple = (props: RippleProps) => {
   const {
-    opacity = 0.5,
     blur = 0,
     duration = 500,
-    fillAndhold = false,
-    color = '#fff'
+    color = '#ffffff50',
+    animationName = 'ease-out',
+    endOpacity = 0
   } = props;
   const surface = useRef(null);
-  const { add } = useRipple({
-    blur,
-    opacity,
-    duration,
-    fillAndhold,
-    color,
-  });
-  const handleClick = (event: PointerEvent) => {
-    add(
-      surface.current!,
-      event,
-      color,
-      opacity,
-      duration,
-    )
+  const { add } = useRipple({ blur, duration, color, animationName, endOpacity });
+  const bindElement = useRef<HTMLElement>(null);
+  const handleClick = (event: React.PointerEvent<HTMLElement>) => {
+    if (!bindElement.current) {
+      bindElement.current = (surface.current as HTMLDivElement).parentElement;
+      bindElement.current.addEventListener('pointerdown', (ev) => {
+        add(
+          surface.current,
+          bindElement.current,
+          ev
+        )
+      })
+      add(surface.current, bindElement.current, event as unknown as PointerEvent)
+    }
   }
-  return <div ref={surface} onPointerDown={(event: React.PointerEvent<unknown>) => handleClick(event as unknown as PointerEvent)} style={
+  return <div ref={surface} onPointerDown={(event: React.PointerEvent<HTMLElement>) => handleClick(event)} style={
     {
       width: '100%',
       height: '100%',
@@ -40,10 +39,10 @@ export const Ripple = (props: RippleProps) => {
 
 export interface RippleProps {
   color?: string;
-  opacity?: number;
+  endOpacity?: number;
   blur?: number;
   duration?: number;
-  fillAndhold?: boolean;
+  animationName?: string;
 }
 
 Ripple.displayName = 'Ripple'
