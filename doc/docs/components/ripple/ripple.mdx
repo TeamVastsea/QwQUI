@@ -1,0 +1,164 @@
+# Ripple 水波纹
+
+## 基本用法
+
+```tsx
+import { Ripple, Button } from "@qwqui/core";
+
+export default function App() {
+  const handleClick = () => {
+    console.log("click!");
+  };
+  return (
+    <Button>
+      Button
+      <Ripple color="#00000050" />
+    </Button>
+  );
+}
+```
+
+## 自定义颜色
+
+```tsx
+import { Ripple } from "@qwqui/core";
+
+export default function App() {
+  return (
+    <div
+      style={{
+        width: "500px",
+        height: "500px",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '4px dashed #66ccff',
+        borderRadius: '16px',
+        fontSize: '32px'
+      }}
+    >
+      Ripple #66ccff
+      <Ripple color="#66ccff" />
+    </div>
+  );
+}
+```
+
+## 自定义透明度
+
+```tsx
+import { Ripple } from "@qwqui/core";
+
+export default function App() {
+  return (
+    <div
+      style={{
+        width: "500px",
+        height: "500px",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '4px dashed #66ccff',
+        borderRadius: '16px',
+        fontSize: '32px'
+      }}
+    >
+      Ripple
+      <Ripple color="#66ccff50" endOpacity={1} />
+    </div>
+  );
+}
+```
+
+## 自定义过度时间
+
+```tsx
+import { Ripple } from "@qwqui/core";
+
+export default function App() {
+  return (
+    <div
+      style={{
+        width: "500px",
+        height: "500px",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '4px dashed #66ccff',
+        borderRadius: '16px',
+        fontSize: '32px'
+      }}
+    >
+      Ripple
+      <Ripple color="#66ccff" duration={3000} />
+    </div>
+  );
+}
+```
+
+## 自定义模糊程度
+
+```tsx
+import { Ripple } from "@qwqui/core";
+
+export default function App() {
+  return (
+    <div
+      style={{
+        width: "500px",
+        height: "500px",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '4px dashed #66ccff',
+        borderRadius: '16px',
+        fontSize: '32px'
+      }}
+    >
+      Ripple
+      <Ripple blur="32px" />
+    </div>
+  );
+}
+```
+
+## 自定义动画名称
+
+```tsx
+import { Ripple } from "@qwqui/core";
+
+export default function App() {
+  return (
+    <div
+      style={{
+        width: "500px",
+        height: "500px",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '4px dashed #66ccff',
+        borderRadius: '16px',
+        fontSize: '32px'
+      }}
+    >
+      Ripple
+      <Ripple animation-name="linear" />
+    </div>
+  );
+}
+```
+
+## Props
+
+|     名称      |  类型  |      介绍      |             Demo 示例             | 默认值 |
+| :-----------: | :----: | :------------: | :-------------------------------: | :-:|
+|     color     | string |   水波纹颜色   |     [自定义颜色](#自定义颜色)     | #ffffff50|
+|  endOpacity   | number | 结束时的透明度 |   [自定义透明度](#自定义透明度)   |  0
+|     blur      | number | 水波纹模糊程度 | [自定义模糊程度](#自定义模糊程度) | 0
+|   duration    | number |    持续时间    | [自定义过度时间](#自定义过度时间) | 300
+| animationName | string |    动画函数    | [自定义动画名称](#自定义动画名称) | ease-out

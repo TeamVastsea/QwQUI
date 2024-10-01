@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { RippleProps } from "./ripple";
 
 export const useRipple = (
-  props: RippleProps = {
+  props: RippleProps & { surface?: React.MutableRefObject<HTMLDivElement> } = {
     color: '#ffffff50',
     animationName: 'ease-out',
     duration: 300,
@@ -9,8 +10,20 @@ export const useRipple = (
     endOpacity: 0.5
   }
 ) => {
-  const { color, animationName, duration, blur, endOpacity } = props;
   let oldPosition = '';
+  const { color, animationName, duration, blur, endOpacity, surface } = props;
+  useEffect(() => {
+    const bindElement = surface.current.parentElement;
+    if (surface.current) {
+      const computedStyle = window.getComputedStyle(bindElement);
+      if (computedStyle.position === 'static') {
+        if (bindElement.style.position) {
+          oldPosition = bindElement.style.position
+        }
+        bindElement.style.position = 'relative'
+      }
+    }
+  }, [surface])
   const magnitude = (x1: number, y1: number, x2: number, y2: number): number => {
     const deltaX = x1 - x2;
     const deltaY = y1 - y2;
@@ -61,7 +74,6 @@ export const useRipple = (
     const size = getDistance(x, y, rect) * 2;
     const ripple = createElement(size, x, y);
     const computedStyle = window.getComputedStyle(bindElement);
-
     if (computedStyle.position === 'static') {
       if (bindElement.style.position) {
         oldPosition = bindElement.style.position
@@ -76,7 +88,6 @@ export const useRipple = (
       ripple.style.filter = `blur(${blur})`
       setTimeout(() => {
         ripple.style.opacity = `${endOpacity}`;
-        console.log(endOpacity);
         ripple.style.filter = `blur(0px)`
         ripple.addEventListener('transitionend', () => {
           setTimeout(() => {

@@ -10,8 +10,8 @@ export const Ripple = (props: RippleProps) => {
     endOpacity = 0
   } = props;
   const surface = useRef(null);
-  const { add } = useRipple({ blur, duration, color, animationName, endOpacity });
   const bindElement = useRef<HTMLElement>(null);
+  const { add } = useRipple({ blur, duration, color, animationName, endOpacity, surface });
   const handleClick = (event: React.PointerEvent<HTMLElement>) => {
     if (!bindElement.current) {
       bindElement.current = (surface.current as HTMLDivElement).parentElement;
