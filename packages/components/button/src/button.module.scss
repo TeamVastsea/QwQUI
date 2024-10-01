@@ -1,0 +1,52 @@
+@import "../../../theme/index";
+
+:root {
+  --button-height-xs: 30px;
+  --button-height-sm: 36px;
+  --button-height-md: 42px;
+  --button-height-lg: 50px;
+  --button-height-xl: 60px;
+  
+  --button-padding-xs: 14px;
+  --button-padding-sm: 18px;
+  --button-padding-md: 22px;
+  --button-padding-lg: 26px;
+  --button-padding-xl: 32px;
+  
+  --button-font-size-xs: 9px;
+  --button-font-size-sm: 11px;
+  --button-font-size-md: 14px;
+  --button-font-size-lg: 17px;
+  --button-font-size-xl: 20px;
+  
+  --button-radius-xs: var(--radius-xs);
+  --button-radius-sm: var(--radius-sm);
+  --button-radius-md: var(--radius-md);
+  --button-radius-lg: var(--radius-lg);
+  --button-radius-xl: var(--radius-xl);
+  --button-radius-full: var(--radius-full);
+
+  --color: var(--gray-800);
+  --color-hover: var(--gray-700);
+  --color-active: var(--gray-900);
+  --background-color: var(--blue-300);
+  --background-color-hover: var(--blue-200);
+  --background-color-active: var(--blue-400);
+}
+
+.button {
+  color: var(--color);
+  background-color: var(--background-color);
+  
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: var(--background-color-hover);
+    color: var(--color-hover);
+  }
+  
+  &:active {
+    background-color: var(--background-color-active);
+    color: var(--color-active);
+  }
+}

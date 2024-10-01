@@ -1,0 +1,82 @@
+import ButtonControls from "./ButtonControls.tsx";
+
+# Button
+
+<ButtonControls />
+
+## Basic
+
+Basic use of Button.
+
+```tsx
+import { Button } from '@qwqui/core';
+
+export default function App() {
+  return (
+    <div style={{display: "flex", gap: 10}}>
+      <Button size={"xs"}>Button</Button>
+      <Button size={"sm"}>Button</Button>
+      <Button>Button</Button>
+      <Button size={"lg"}>Button</Button>
+      <Button size={"xl"}>Button</Button>
+    </div>
+  )
+}
+```
+
+## Color
+
+```tsx
+import {Button} from '@qwqui/core';
+
+export default function App() {
+  return (
+    <div>
+      <div style={{display: "flex", gap: 10}}>
+        <Button>Button</Button>
+        <Button color={"cyan"}>Cyan</Button>
+        <Button color={"indigo"}>Indigo</Button>
+        <Button color={"red"}>Red</Button>
+      </div>
+
+      <div style={{display: "flex", gap: 10, marginTop: 20}}>
+        <Button color={"teal"}>Teal</Button>
+        <Button color={"green"}>Green</Button>
+        <Button color={"yellow"}>Yellow</Button>
+        <Button color={"orange"}>Orange</Button>
+      </div>
+    </div>
+    
+  )
+}
+```
+
+## Strong
+
+```tsx
+import { Button } from '@qwqui/core';
+
+export default function App() {
+  return (
+    <div style={{display: "flex", gap: 10}}>
+      <Button>Normal</Button>
+      <Button strong>Strong</Button>
+    </div>
+  )
+}
+```
+
+## Disabled
+
+```tsx
+import { Button } from '@qwqui/core';
+
+export default function App() {
+  return (
+    <div style={{display: "flex", gap: 10}}>
+      <Button>Enabled</Button>
+      <Button disabled>Disabled</Button>
+    </div>
+  )
+}
+```

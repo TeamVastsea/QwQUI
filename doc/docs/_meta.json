@@ -1,8 +1,8 @@
 [
   {
-    "text": "Guide",
-    "link": "/guide/",
-    "activeMatch": "/guide/"
+    "text": "Components",
+    "link": "/components/button/button",
+    "activeMatch": "/components/"
   },
   {
     "text": "Hello World",
