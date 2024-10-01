@@ -1,4 +1,3 @@
-import './button/src/style.scss'
 import './drop-zone/src/style.scss'
 import './ripple/src/ripple.module.scss'
 export * from './button/index.ts'

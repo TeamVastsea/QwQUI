@@ -5,7 +5,7 @@ import { Button } from '..';
 describe('Button', () => {
   it('should define', () => {
     const wrapper = render(
-      <Button />
+      <Button>Click</Button>
     )
     expect(wrapper).toBeDefined()
   })
