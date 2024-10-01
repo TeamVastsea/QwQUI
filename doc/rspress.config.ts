@@ -19,9 +19,9 @@ export default defineConfig({
   },
   plugins: [pluginPreview()],
   builderConfig: {
-    // plugins: [
-    //   pluginSass()
-    // ],
+    plugins: [
+      pluginSass()
+    ],
     tools: {
       rspack: {
         resolve: {
