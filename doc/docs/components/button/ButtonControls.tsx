@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@qwqui/core";
 
-export default function ButtonControls() {
+const ButtonControls = () => {
   const [color, setColor] = useState('blue');
   const [size, setSize] = useState('md');
   const [radius, setRadius] = useState('md');
@@ -13,7 +13,7 @@ import { Button } from "@qwqui/core";
 
 function Demo() {
   return <Button color="${color}" size="${size}"${useCustomRadius ? ` radius="${radius}"` : ''}${strong ? ` strong={${strong}}` : ''}>Button</Button>;
-}`.trimStart()
+}`.trimStart();
   
   const COLORS = ['gray', 'red', 'pink', 'grape', 'violet', 'indigo',
     'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange'];
@@ -68,5 +68,7 @@ function Demo() {
         {codeStr}
       </pre>
     </>
-  )
+  );
 };
+
+export default ButtonControls;
