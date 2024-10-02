@@ -19,7 +19,7 @@ features:
   - title: Modern Design
     details: Embrace a sleek and contemporary aesthetic for your applications.
     icon: 🎨
-  - title: Support for MDX content writing
+  - title: Silky-Smooth Performance
     details: Enjoy fluid animations and fast interactions for a better user experience.
     icon: 🔥
   - title: Based on RsPack
