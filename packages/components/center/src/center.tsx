@@ -3,15 +3,11 @@ import classes from './center.module.scss';
 
 export const Center = (props: CenterProps) => {
   const { children, inline } = props;
-
-  const getDisplayType = () => {
-    return inline ? 'inline-flex' : 'flex';
-  };
-
   return (
     <div
       className={classes.root}
-  data-inline={inline}>
+      data-inline={inline}
+    >
       {children}
     </div>
   );

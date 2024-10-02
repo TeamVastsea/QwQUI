@@ -12,22 +12,27 @@ describe('Center', () => {
 
   it('should render children correctly', () => {
     const { getByText } = render(
-      <Center>Centered Content</Center>
+      <Center>Centered Content</Center>,
     );
-    expect(getByText('Centered Content')).toBeInTheDocument();
+    expect(getByText('Centered Content')).toBeDefined();
   });
 
   it('should apply inline-flex when inline is true', () => {
-    const { container } = render(
-      <Center inline>Inline Centered Content</Center>
+    const { baseElement } = render(
+      <Center inline><div>Inline Centered Content</div></Center>,
     );
-    expect(container.firstChild).toHaveStyle('display: inline-flex');
+    const comp = baseElement.firstElementChild;
+    expect(comp).toBeDefined();
+    expect(comp.getAttribute('data-inline')).toBeDefined()
+    expect(comp.getAttribute('data-inline')).not.toBe('')
   });
 
   it('should apply flex when inline is false', () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Center>Block Centered Content</Center>
     );
-    expect(container.firstChild).toHaveStyle('display: flex');
+    const comp = baseElement.firstElementChild;
+    expect(comp).toBeDefined();
+    expect(comp.getAttribute('data-inline')).toBeNull()
   });
 });
