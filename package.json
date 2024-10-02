@@ -37,6 +37,7 @@
   },
   "scripts": {
     "prebuild": "esno internal/create-core-entry.ts && pnpm --filter @qwqui/* clean:dist",
+    "predev": "esno internal/create-core-entry.ts && pnpm --filter @qwqui/* clean:dist",
     "test:type": "tsc --noEmit",
     "test": "jest",
     "build": "pnpm --filter !@qwqui/core build && pnpm --filter @qwqui/core build",
