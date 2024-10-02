@@ -14,7 +14,7 @@ export const Button = (props: ButtonProps) => {
     }
 
     if (props.size == 'xl') {
-      return 'xl'
+      return 'xl';
     }
     return 'md';
   }
@@ -53,13 +53,13 @@ export const Button = (props: ButtonProps) => {
 
 
 export interface ButtonProps {
-  children?: React.ReactNode,
-  onClick?: () => void,
-  disabled?: boolean,
-  variant?: string,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  children?: React.ReactNode;
+  onClick?: () => void;
+  disabled?: boolean;
+  variant?: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
   color?: 'gray' | 'red' | 'pink' | 'grape' | 'violet' | 'indigo'
-    | 'blue' | 'cyan' | 'teal' | 'green' | 'lime' | 'yellow' | 'orange',
-  strong?: boolean,
+    | 'blue' | 'cyan' | 'teal' | 'green' | 'lime' | 'yellow' | 'orange';
+  strong?: boolean;
 }
