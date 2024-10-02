@@ -8,8 +8,8 @@
   },
   {
     "type": "dir",
-    "name": "ripple",
-    "label": "Ripple",
+    "name": "animation",
+    "label": "Animation",
     "collapsible": true,
     "collapsed": false
   },

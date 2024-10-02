@@ -41,6 +41,9 @@ export const Button = (props: ButtonProps) => {
           '--background-color': props.disabled ? 'var(--gray-300)' : `var(--${color}-300)`,
           '--background-color-hover': props.disabled ? 'var(--gray-300)' : `var(--${color}-200)`,
           '--background-color-active': props.disabled ? 'var(--gray-300)' : `var(--${color}-400)`,
+          '--color': props.disabled ? 'var(--gray-500)' : `var(--${color}-900)`,
+          '--color-hover': props.disabled ? 'var(--gray-500)' : `var(--${color}-600)`,
+          '--color-active': props.disabled ? 'var(--gray-500)' : `var(--${color}-900)`,
         } as React.CSSProperties}>
         {props.children}
       </button>

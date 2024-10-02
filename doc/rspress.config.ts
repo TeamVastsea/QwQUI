@@ -7,10 +7,10 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'QwQUI - Docs',
   description: 'Doc for QwQUI',
-  icon: '/rspress-icon.png',
+  icon: '/Logo.svg',
   logo: {
-    light: '/rspress-light-logo.png',
-    dark: '/rspress-dark-logo.png',
+    light: '/logo-with-text-light.png',
+    dark: '/logo-with-text-dark.png',
   },
   themeConfig: {
     socialLinks: [
