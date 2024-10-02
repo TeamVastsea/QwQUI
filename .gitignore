@@ -2,3 +2,4 @@ node_modules
 dist
 .rslib
 pnpm-lock.yaml
+packages/component/index.ts
