@@ -1,4 +1,4 @@
-# QwQUI
+![header](https://s2.loli.net/2024/10/02/Get9iEBqf6HyCMg.png)
 
 Welcome to QwQUI, a modern and silky-smooth UI framework built on RsPack. Designed to elevate your web applications, QwQUI provides a seamless experience with cutting-edge performance.
 
