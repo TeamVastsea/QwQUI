@@ -1,0 +1,9 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &[data-inline] {
+      display: inline-flex;
+    }
+  }
