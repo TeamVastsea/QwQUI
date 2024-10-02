@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './center.module.scss';
 
 export const Center = (props: CenterProps) => {
-  const { children, inline, ...others } = props;
+  const { children, inline } = props;
 
   const getDisplayType = () => {
     return inline ? 'inline-flex' : 'flex';
