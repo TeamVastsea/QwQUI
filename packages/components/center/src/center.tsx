@@ -11,11 +11,7 @@ export const Center = (props: CenterProps) => {
   return (
     <div
       className={classes.root}
-      style={{
-        display: getDisplayType(),
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+  data-inline={inline}
       {...others}>
       {children}
     </div>
