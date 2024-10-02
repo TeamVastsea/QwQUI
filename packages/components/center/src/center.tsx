@@ -11,8 +11,7 @@ export const Center = (props: CenterProps) => {
   return (
     <div
       className={classes.root}
-  data-inline={inline}
-      {...others}>
+  data-inline={inline}>
       {children}
     </div>
   );
