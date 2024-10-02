@@ -45,7 +45,7 @@
     "clean:deps": "pnpm --filter @qwqui/* clean:deps",
     "create:comp": "esno internal/create-component.ts",
     "dev": "pnpm -C doc dev",
-    "build:site": "pnpm --filter @qwqui/doc build",
+    "build:site": "pnpm prebuild && pnpm --filter @qwqui/doc build",
     "lint": "eslint ."
   },
   "devDependencies": {
