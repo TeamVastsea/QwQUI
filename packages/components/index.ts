@@ -1,7 +1,0 @@
-import './drop-zone/src/style.scss'
-import './ripple/src/ripple.module.scss'
-import './center/src/center.module.scss'
-export * from './button/index.ts'
-export * from './drop-zone/index.ts'
-export * from './ripple/index.ts'
-export * from './center/index.ts'
