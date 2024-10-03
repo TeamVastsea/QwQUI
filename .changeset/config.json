@@ -9,6 +9,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "@qwqui/doc",
-    "@qwqui/build"
+    "@qwqui/build",
+    "@qwqui/internal"
   ]
 }
