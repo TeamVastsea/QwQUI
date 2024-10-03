@@ -8,7 +8,6 @@
     "@qwqui/core": "1.0.0",
     "@qwqui/button": "1.0.0",
     "@qwqui/center": "1.0.0",
-    "@qwqui/drop-zone": "1.0.0",
     "@qwqui/ripple": "1.0.0",
     "@qwqui/theme": "1.0.0"
   },
