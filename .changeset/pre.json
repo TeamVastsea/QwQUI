@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@qwqui/doc": "1.0.0",
+    "@qwqui/internal": "1.0.0",
+    "@qwqui/build": "1.0.0",
+    "@qwqui/core": "1.0.0",
+    "@qwqui/button": "1.0.0",
+    "@qwqui/center": "1.0.0",
+    "@qwqui/ripple": "1.0.0",
+    "@qwqui/theme": "1.0.0"
+  },
+  "changesets": []
+}
