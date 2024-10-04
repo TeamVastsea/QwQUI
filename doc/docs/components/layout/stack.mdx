@@ -1,0 +1,29 @@
+# Stack
+
+## 基本用法
+
+<code src="./stack/basic-usage.tsx" />
+
+## Props
+
+|   名称    |     类型      |           介绍           | Demo 示例 | 是否必选 |  默认值   |
+| :-------: | :-----------: | :----------------------: | :-------: | :------: | :-------: |
+|    gap    |    number     |      元素之间的间隔      |    [基本用法](#基本用法)     |    否    |     0     |
+|   align   |  StackAlign   |     水平方向对齐方式     |     [基本用法](#基本用法)     |    否    |  'start'  |
+|  justify  | StackJustify  |    垂直方向的对齐方式    |    [基本用法](#基本用法)     |    否    |  'start'  |
+| className |    string     | 对该元素补充的 className |    [基本用法](#基本用法)     |    否    |    ''     |
+|     h     |    number     |           高度           |  [基本用法](#基本用法)     |    否    | undefined |
+|   style   | CSSProperties |         样式对象         |   [基本用法](#基本用法)     |    否    |    \{\}     |
+
+## Types
+
+```ts
+export type StackAlign = "stretch" | "center" | "start" | "end";
+export type StackJustify =
+  | "start"
+  | "center"
+  | "end"
+  | "space-around"
+  | "space-between"
+  | "evenly";
+```

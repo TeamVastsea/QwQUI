@@ -1,0 +1,16 @@
+.btn {
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--zen-300);
+  transition: all .3s linear;
+
+  &:hover {
+    background: var(--zen-200);
+  }
+}
+
+.actions {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
