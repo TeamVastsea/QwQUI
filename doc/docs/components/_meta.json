@@ -19,5 +19,12 @@
     "label": "Center",
     "collapsible": true,
     "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "layout",
+    "label": "Layout",
+    "collapsible": true,
+    "collapsed": false
   }
 ]
