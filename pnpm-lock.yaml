@@ -193,17 +193,13 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
 
-  packages/components/drop-zone:
+  packages/components/ripple:
     dependencies:
       react:
         specifier: 18.3.1
         version: 18.3.1
-    devDependencies:
-      '@qwqui/theme':
-        specifier: workspace:^
-        version: link:../../theme
 
-  packages/components/ripple:
+  packages/components/stack:
     dependencies:
       react:
         specifier: 18.3.1
