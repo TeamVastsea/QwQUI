@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   release:
     name: Release
@@ -12,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [20]
 
     steps:
       - name: Checkout Branch

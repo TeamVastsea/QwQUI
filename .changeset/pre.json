@@ -11,5 +11,7 @@
     "@qwqui/ripple": "1.0.0",
     "@qwqui/theme": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "brown-penguins-peel"
+  ]
 }
