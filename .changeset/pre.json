@@ -9,9 +9,11 @@
     "@qwqui/button": "1.0.0",
     "@qwqui/center": "1.0.0",
     "@qwqui/ripple": "1.0.0",
-    "@qwqui/theme": "1.0.0"
+    "@qwqui/theme": "1.0.0",
+    "@qwqui/stack": "0.0.0"
   },
   "changesets": [
-    "brown-penguins-peel"
+    "brown-penguins-peel",
+    "olive-pugs-accept"
   ]
 }
