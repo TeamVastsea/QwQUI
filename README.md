@@ -36,6 +36,7 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 For questions or feedback, feel free to reach out via issues or contact us directly.
 
-- [Email: i@qwq.my](mailto:i@qwq.my)
-- [npmjs](https://www.npmjs.com/package/qwq-ui)
-- [Discord](https://discord/TnupyDahvr)
+- [Email: ui@qwq.ms](mailto:ui@qwq.ms)
+- [npmjs](https://www.npmjs.com/settings/qwqui/packages)
+- [Discord](https://discord.gg/eqnpnrn3)
+- [Discord Bot](https://github.com/TeamVastsea/QwQ-Discord-Bot)
