@@ -5,8 +5,12 @@ on:
     branches:
       - release 
 
+
 jobs:
   version:
+    permissions:
+        contents: write
+        pull-requests: write
     name: Version
     runs-on: ubuntu-latest
 

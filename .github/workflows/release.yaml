@@ -7,12 +7,15 @@ on:
 
 jobs:
   release:
+    permissions:
+      contents: write
+      pull-requests: write
     name: Release
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [20]
 
     steps:
       - name: Checkout Branch
