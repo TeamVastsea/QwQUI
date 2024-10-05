@@ -1,0 +1,11 @@
+.demo-block {
+  width: fit-content;
+  background: #66ccff;
+  color: #000;
+  padding: 4px 8px;
+}
+
+.Justify__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

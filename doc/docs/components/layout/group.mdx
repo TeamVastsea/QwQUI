@@ -1,0 +1,31 @@
+# Group
+
+## 基本用法
+
+<code src="./group/basic-usage.tsx" />
+
+## Props
+
+|   名称    |           类型            |                     介绍                      |  默认值   |
+| :-------: | :-----------------------: | :-------------------------------------------: | :-------: |
+|    gao    |          number           |                元素之间的间隔                 |     0     |
+|   align   |        GroupAlign         |   元素垂直方向对齐方式, 等价于`align-items`   |  'start'  |
+|  justify  |       GroupJustify        | 元素水平方向排列方式, 等价于`justify-content` | 'center'  |
+| className |          string           |               额外的`className`               |    ''     |
+|     h     |          number           |                   容器高度                    | undefined |
+|   style   |       CSSProperties       |                  追加的样式                   |   `{}`    |
+|   grow    |          boolean          |           子元素是否会自动占据宽度            |   false   |
+|   wrap    | CSSProperties['flexWrap'] |                子元素换行策略                 |  'wrap'   |
+
+## Type
+
+```ts
+export type GroupAlign = "center" | "start" | "end";
+export type GroupJustify =
+  | "start"
+  | "center"
+  | "end"
+  | "space-around"
+  | "space-between"
+  | "space-evenly";
+```

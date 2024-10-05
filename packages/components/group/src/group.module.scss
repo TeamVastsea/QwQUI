@@ -1,0 +1,32 @@
+.root:root {
+  --group-wrap: wrap;
+  --group-justify: flex-start;
+  --group-align: flex-start;
+  --group-gap: 0px;
+  --group-h: auto;
+}
+
+
+$group-wrap: var(--group-wrap);
+$group-justify: var(--group-justify);
+$group-align: var(--group-align);
+$group-gap: var(--group-gap);
+$group-children-width: var(--group-child-width);
+$group-h: var(--group-h);
+
+.root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: $group-wrap;
+  justify-content: $group-justify;
+  align-items: $group-align;
+  gap: $group-gap;
+  height: $group-h;
+
+  &[data-grow="true"] {
+    &>* {
+      flex-grow: 1;
+      max-width: $group-children-width;
+    }
+  }
+}
