@@ -42,6 +42,8 @@ export const Group = (props: GroupProps) => {
   )
 }
 
+Group.displayName = '@qwqui/layout/Group'
+
 export type GroupAlign = 'center' | 'start' | 'end';
 export type GroupJustify = 'start' | 'center' | 'end' | 'space-around' | 'space-between' | 'space-evenly';
 
