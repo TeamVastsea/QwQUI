@@ -3,5 +3,10 @@
     "type": "file",
     "name": "stack",
     "label": "Stack"
+  },
+  {
+    "type": "file",
+    "name": "group",
+    "label": "Group"
   }
 ]
