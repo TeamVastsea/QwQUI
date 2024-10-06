@@ -19,12 +19,5 @@
     "label": "Center",
     "collapsible": true,
     "collapsed": false
-  },
-  {
-    "type": "dir",
-    "name": "flex",
-    "label": "Flex",
-    "collapsible": true,
-    "collapsed": false
   }
 ]

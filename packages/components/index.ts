@@ -1,8 +1,0 @@
-import './button/src/button.module.scss'
-import './center/src/center.module.scss'
-import './ripple/src/ripple.module.scss'
-import './flex/src/flex.module.scss'
-export * from './button/index.ts'
-export * from './center/index.ts'
-export * from './ripple/index.ts'
-export * from './flex/index.ts'
