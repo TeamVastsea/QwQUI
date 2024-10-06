@@ -1,0 +1,13 @@
+{
+  "include": [
+    "index.ts",
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "rslib.config.ts",
+    "**/rslib.config.ts"
+  ],
+  "extends": "../../tsconfig.json"
+}

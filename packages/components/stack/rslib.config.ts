@@ -1,2 +1,4 @@
 import { defineBuild } from '@qwqui/build';
-export default defineBuild();
+export default defineBuild({
+  external: {}
+}); 
