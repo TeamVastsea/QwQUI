@@ -207,12 +207,13 @@ importers:
 
   packages/components/stack:
     dependencies:
-      '@qwqui/tools':
-        specifier: workspace:^
-        version: link:../../tools
       react:
         specifier: 18.3.1
         version: 18.3.1
+    devDependencies:
+      '@qwqui/tools':
+        specifier: workspace:^
+        version: link:../../tools
 
   packages/theme: {}
 
