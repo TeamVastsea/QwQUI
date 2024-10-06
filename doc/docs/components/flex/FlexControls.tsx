@@ -89,8 +89,8 @@ export default App;`.trimStart();
             align={align}
             wrap={wrap}
             gap={gap}
-            minHeight={50}
-            background="gray"
+            mih={50}
+            bg="gray"
         >
             <Button>Button 1</Button>
             <Button>Button 2</Button>
