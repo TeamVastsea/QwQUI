@@ -5,6 +5,7 @@ module.exports = {
   moduleFileExtensions: ['tsx', 'ts', 'js', 'jsx'],
   modulePathIgnorePatterns: ['packages/build', 'packages/tools'],
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+  testMatch: ['**/__{test,tests,spec}__/*.{spec,test}.{ts,tsx}'],
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',

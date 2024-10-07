@@ -6,9 +6,6 @@
       "@qwqui/build": [
         "./packages/build"
       ],
-      "@qwqui/tools": [
-        "./packages/tools/index.ts"
-      ],
       "@qwqui/*": [
         "./packages/components/*"
       ],
