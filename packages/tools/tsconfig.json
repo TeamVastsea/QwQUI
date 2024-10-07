@@ -1,0 +1,14 @@
+{
+  "include": [
+    "index.ts",
+    "./**/*.ts",
+    "__tests__/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "rslib.config.ts",
+    "**/rslib.config.ts"
+  ],
+  "extends": "../../tsconfig.json"
+}

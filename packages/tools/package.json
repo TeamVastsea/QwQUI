@@ -1,6 +1,6 @@
 {
-  "name": "@qwqui/stack",
-  "version": "1.0.0-alpha.0",
+  "name": "@qwqui/tools",
+  "version": "0.0.0",
   "description": "",
   "scripts": {
     "build": "rslib build",
@@ -25,8 +25,5 @@
   ],
   "peerDependencies": {
     "react": "18.3.1"
-  },
-  "devDependencies": {
-    "@qwqui/tools": "workspace:^"
   }
 }

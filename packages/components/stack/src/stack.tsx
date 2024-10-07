@@ -1,25 +1,24 @@
 import React, { CSSProperties } from 'react';
 import stackStyle from './stack.module.scss';
+import { factory, resolveCssVar } from '@qwqui/tools';
 
-const vars = (props: Omit<StackProps, 'children'>) => {
-  return {
-    '--stack-gap': `${props.gap}px`,
-    '--stack-align': props.align,
-    '--stack-justify': props.justify,
-    '--stack-height': props.h ? `${props.h}px` : ''
-  } as React.CSSProperties
+interface StackVar {
+  '--stack-gap': string;
+  '--stack-align': string;
+  '--stack-justify': string;
+  '--stack-height': string
 }
 
-export const Stack = (
-  props: StackProps
-) => {
-  const stackStyleVar = vars({
+export const Stack = factory<StackProps>((props) => {
+  const stackStyleVar = resolveCssVar<'stack', StackProps, StackVar>('stack', {
     gap: 0,
     justify: 'start',
     align: 'start',
     className: '',
     ...props
   });
+  stackStyleVar['--stack-gap'] = `${stackStyleVar['--stack-gap']}px`;
+  stackStyleVar['--stack-h'] = `${stackStyleVar['--stack-h']}px`;
   return (
     <div
       className={[stackStyle.root, props.className].join(' ')}
@@ -31,7 +30,7 @@ export const Stack = (
       {props.children}
     </div>
   )
-}
+}, 'Stack')
 
 export type StackAlign = 'stretch' | 'center' | 'start' | 'end';
 export type StackJustify = 'start' | 'center' | 'end' | 'space-around' | 'space-between' | 'evenly';
