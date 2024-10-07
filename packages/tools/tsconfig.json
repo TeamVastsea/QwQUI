@@ -1,7 +1,8 @@
 {
   "include": [
     "index.ts",
-    "./**/*.ts"
+    "./**/*.ts",
+    "__tests__/**/*.tsx"
   ],
   "exclude": [
     "node_modules",
