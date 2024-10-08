@@ -36,3 +36,4 @@ export const Flex = (props: FlexProps) => {
         </div>
     );
 }
+Flex.displayName='@qwqui/layout/flex'
