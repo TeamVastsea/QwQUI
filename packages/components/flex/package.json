@@ -1,0 +1,29 @@
+{
+    "name": "@qwqui/flex",
+    "version": "0.0.0",
+    "description": "",
+    "scripts": {
+      "build": "rslib build",
+      "clean:dist": "rimraf dist .rslib",
+      "clean:deps": "rimraf node_modules"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "types": "./dist/index.d.mts",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js",
+        "types": "./dist/index.d.mts"
+      }
+    },
+    "files": [
+      "dist"
+    ],
+    "peerDependencies": {
+      "react": "18.3.1"
+    }
+}

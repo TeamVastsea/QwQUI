@@ -1,0 +1,30 @@
+import FlexControls from "./flex/FlexControls";
+
+# Flex
+
+## 基本用法
+
+<FlexControls />
+
+## Props
+
+|   名称    |           类型            |                     介绍                      |  默认值   |
+| :-------: | :-----------------------: | :-------------------------------------------: | :-------: |
+|    gap    |          number           |                元素之间的间隔                 |     0     |
+|   align   |        FlexAlign         |   元素垂直方向对齐方式, 等价于`align-items`   |  'start'  |
+|  justify  |       FlexJustify        | 元素水平方向排列方式, 等价于`justify-content` | 'start'  |
+|  direction  |       FlexDirection        | 元素排列方向, 等价于`flex-direction` | 'row'  |
+|   wrap    |          FlexWrap         |                子元素换行策略                 |  'nowrap'   |
+| className |          string           |               额外的`className`               |    ''     |
+|   mih     |          number           |                   容器最小高度                    | undefined |
+|   style   |       CSSProperties       |                  追加的样式                   |   `{}`    |
+|   grow    |          boolean          |           子元素是否会自动占据宽度            |   false   |
+
+## Type
+
+```ts
+export type FlexJustify = 'center' | 'start' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
+export type FlexAlign = 'stretch' | 'center' | 'end' | 'start';
+export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+export type FlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
+```

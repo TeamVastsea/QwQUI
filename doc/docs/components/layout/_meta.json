@@ -8,5 +8,10 @@
     "type": "file",
     "name": "group",
     "label": "Group"
+  },
+  {
+    "type": "file",
+    "name": "flex",
+    "label": "Flex"
   }
 ]
