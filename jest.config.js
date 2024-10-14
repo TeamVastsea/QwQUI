@@ -1,4 +1,3 @@
-
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
@@ -6,6 +5,7 @@ module.exports = {
   moduleFileExtensions: ['tsx', 'ts', 'js', 'jsx'],
   modulePathIgnorePatterns: ['packages/build'],
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+  testMatch: ['**/__{test,tests,spec}__/*.{spec,test}.{ts,tsx}', '**/__tests__/*.test.tsx'],
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
@@ -18,10 +18,11 @@ module.exports = {
           }
         }
       }
-    ]
+    ],
   },
   moduleNameMapper: {
-    "^.+\\.(css|less|scss)$": "babel-jest"
+    "^.+\\.(css|less|scss)$": "babel-jest",
+    "@qwqui/tools": "<rootDir>/packages/tools"
   },
   setupFilesAfterEnv: ['./setup.ts', "@testing-library/jest-dom"],
   globals: {
