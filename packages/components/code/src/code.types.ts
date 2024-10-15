@@ -24,8 +24,15 @@ export interface CodeWrapper {
   children?: React.ReactDOM
 }
 
-export interface CodeFile {
+export interface CodeFileProps {
   name: string;
   code: string;
   icon?: React.ReactNode;
+}
+
+export interface CodeHeaderProps {
+  items: {
+    name: string;
+    icon?: React.ReactNode
+  }[]
 }

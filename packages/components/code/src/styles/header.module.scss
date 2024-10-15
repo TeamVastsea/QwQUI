@@ -1,0 +1,25 @@
+.root {
+  --active-block-width: 75px;
+  position: relative;
+  width: 100%;
+  padding: 8px 12px;
+  display: flex;
+  gap: 20px;
+  color: #f5f5f5;
+  border-bottom: 1px solid #4c4c4c;
+  &__item {
+    width: fit-content;
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+  }
+  &__active_block {
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: calc(var(--active-block-width) * 1px);
+    background-color: #FFB902;
+    left: calc(var(--active-block-x) * 1px);
+    transition: left .3s ease;
+  }
+}
