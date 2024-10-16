@@ -11,15 +11,15 @@ const hasCode = (name: string, code: string, codeFiles: CodeFileProps[]) => {
 
 export const CodeFile = factory<CodeFileProps>((props) => {
   const {codeFiles, setCodeFiles} = useContext<CodeContextType>(CodeContext);
-  const {name, code} = props;
+  const {name, code, language} = props;
   useEffect(()=>{
     if (!hasCode(name, code, codeFiles)){
       setCodeFiles([
         ...codeFiles,
-        {name, code}
+        {name, code, language}
       ])
     }
-  }, [name, code, codeFiles, setCodeFiles])
+  }, [name, code, codeFiles, language, setCodeFiles])
   return (
     <></>
   )

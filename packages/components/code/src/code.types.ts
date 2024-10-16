@@ -21,13 +21,14 @@ export interface CodeWrapper {
   showTrafficLight: boolean;
   logo: React.ReactNode;
   isColored: boolean;
-  children?: React.ReactDOM
+  children?: React.ReactNode
 }
 
 export interface CodeFileProps {
   name: string;
   code: string;
   icon?: React.ReactNode;
+  language: string;
 }
 
 export interface CodeHeaderProps {

@@ -28,5 +28,8 @@
   },
   "devDependencies": {
     "@qwqui/tools": "workspace:^"
+  },
+  "dependencies": {
+    "shiki": "^1.22.0"
   }
 }

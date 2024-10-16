@@ -18,7 +18,8 @@
     "skipDefaultLibCheck": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "lib": ["ES2015.Promise", "ES2015", "DOM"]
   },
   "exclude": [
     "node_modules",

@@ -4,6 +4,7 @@ import { CodeFileProps, CodeWrapper } from './code.types';
 import { CodeHeader } from './code-header';
 import { useEffect, useState } from 'react';
 import style from './styles/code-wrapper.module.scss';
+import { CodeBody } from './code-body';
 
 export const Code = factory<CodeWrapper>((props)=>{
   const [codeFiles, setCodeFiles] = useState<CodeFileProps[]>([]);
@@ -12,6 +13,7 @@ export const Code = factory<CodeWrapper>((props)=>{
   const [width, setWidth] = useState(72);
   const [prevX,setPrevX] = useState();
   const [prevWidth, setPrevWidth] = useState();
+  const cache = new Map();
   useEffect(()=>{
     if (codeFiles[0]){
       setActiveCode(codeFiles[0].name);
@@ -30,10 +32,12 @@ export const Code = factory<CodeWrapper>((props)=>{
       prevX,
       setPrevX,
       prevWidth,
-      setPrevWidth
+      setPrevWidth,
+      cache
     }}>
       <div className={style.root}>
         <CodeHeader />
+        <CodeBody />
         {props.children}
       </div>
     </CodeContext.Provider>
