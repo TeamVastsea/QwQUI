@@ -6,7 +6,7 @@ export type CodeContextType = {
   codeFiles: CodeFileProps[];
   setCodeFiles: React.Dispatch<React.SetStateAction<CodeFileProps[]>>;
   activeCode: string;
-  setActvieCode: React.Dispatch<React.SetStateAction<string>>;
+  setActiveCode: React.Dispatch<React.SetStateAction<string>>;
   x: number;
   setX: React.Dispatch<React.SetStateAction<number>>;
   width: number;
