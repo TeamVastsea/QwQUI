@@ -26,5 +26,12 @@
     "label": "Layout",
     "collapsible": true,
     "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "show",
+    "label": "Show",
+    "collapsible": true,
+    "collapsed": false
   }
 ]
