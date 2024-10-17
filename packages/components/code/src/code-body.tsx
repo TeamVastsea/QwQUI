@@ -33,7 +33,8 @@ export const CodeBody = () => {
     })
     setHTML(html);
     cache.set(code, html);
-  }, [code, codeLanguage, cache]);
+    highLighter.dispose()
+  }, [code, codeLanguage]);
   return  (
     <div className={style.root} dangerouslySetInnerHTML={{__html: html}}></div>
   )

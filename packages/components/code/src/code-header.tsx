@@ -25,7 +25,7 @@ const CodeItem = ({name, icon, onMouseEnter, onMouseLeave,onClick}:CodeItemProps
       setX(currentX - 3);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [name, activeCode, item, setWidth, setX]);
+  }, [name, activeCode, setWidth, setX]);
   const handleClick = () => {
     onClick?.(name);
   }
@@ -68,6 +68,9 @@ export const CodeHeader = () => {
     activeCode,
     setActiveCode
   } = useContext<CodeContextType>(CodeContext);
+  useEffect(()=>{
+    console.log(x,width)
+  },[x,width]);
   const vars = resolveCssVar('active-block', {x, width})
   const onMouseEnter = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setPrevX(x);
@@ -88,6 +91,8 @@ export const CodeHeader = () => {
     navigator.clipboard.writeText(activeFile.code);
   }
   const changeActive = (name: string) => {
+    setPrevX(x);
+    setPrevWidth(width);
     setActiveCode(name);
   }
   return (
