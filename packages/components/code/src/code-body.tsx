@@ -22,18 +22,23 @@ export const CodeBody = () => {
     if (cache.has(code)) {
       return cache.get(code);
     }
-    const highLighter = await createHighlighter({
+    createHighlighter({
       langs: [codeLanguage],
       themes: []
-    });
-    await highLighter.loadTheme(darkTheme as unknown as Record<string, string>);
-    const html = highLighter.codeToHtml(code, {
-      lang: codeLanguage,
-      theme: 'dark-theme'
     })
-    setHTML(html);
-    cache.set(code, html);
-    highLighter.dispose()
+    .then(async (highLighter)=>{
+      await highLighter.loadTheme(darkTheme as unknown as Record<string, string>);
+      return highLighter;
+    })
+    .then((highLighter)=>{
+      const html = highLighter.codeToHtml(code, {
+        lang: codeLanguage,
+        theme: 'dark-theme'
+      })
+      setHTML(html);
+      cache.set(code, html);
+      highLighter.dispose()
+    })
   }, [code, codeLanguage]);
   return  (
     <div className={style.root} dangerouslySetInnerHTML={{__html: html}}></div>
