@@ -1,45 +1,27 @@
-import { useContext, useEffect, useMemo, useState } from "react"
-import { createHighlighter } from 'shiki';
+import { useContext, useEffect,useState } from "react"
 import { CodeContext, CodeContextType } from "./code-context"
 import style from './styles/code-body.module.scss';
 import './styles/hack.css';
 import {darkTheme} from './dark-theme'
+import { useHighlightCode} from "./hooks/useParser";
+import { CodeFileProps } from "./code.types";
 
 export const CodeBody = () => {
-  const {activeCode,codeFiles, cache} = useContext<CodeContextType>(CodeContext);
-  const [code, setCode] = useState('');
+  const {activeCode,codeFiles, cache, setCache} = useContext<CodeContextType>(CodeContext);
   const [codeLanguage, setCodeLanguage] = useState('');
+  const [activeCodeFile, setActvieCodeFile] = useState<CodeFileProps>();
   useEffect(()=>{
     const [codeFile] = codeFiles.filter((file) => file.name === activeCode);
     if (!codeFile){
       return;
     }
-    setCode(codeFile.code);
+    setActvieCodeFile(codeFile);
     setCodeLanguage(codeFile.language);
   }, [activeCode, codeFiles]);
-  const [html, setHTML] = useState('');
-  useMemo(async ()=>{
-    if (cache.has(code)) {
-      return cache.get(code);
-    }
-    createHighlighter({
-      langs: [codeLanguage],
-      themes: []
-    })
-    .then(async (highLighter)=>{
-      await highLighter.loadTheme(darkTheme as unknown as Record<string, string>);
-      return highLighter;
-    })
-    .then((highLighter)=>{
-      const html = highLighter.codeToHtml(code, {
-        lang: codeLanguage,
-        theme: 'dark-theme'
-      })
-      setHTML(html);
-      cache.set(code, html);
-      highLighter.dispose()
-    })
-  }, [code, codeLanguage]);
+  const {html} = useHighlightCode(activeCodeFile, cache, setCache, {
+    langs: [codeLanguage],
+    themes:[],
+  }, [darkTheme as unknown as Record<string,string>]);
   return  (
     <div className={style.root} dangerouslySetInnerHTML={{__html: html}}></div>
   )

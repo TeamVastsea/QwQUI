@@ -2,9 +2,11 @@ import {factory} from '@qwqui/tools';
 import { CodeContext } from './code-context';
 import { CodeFileProps, CodeWrapper } from './code.types';
 import { CodeHeader } from './code-header';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import style from './styles/code-wrapper.module.scss';
 import { CodeBody } from './code-body';
+import { useHighligther } from './hooks/useParser';
+import { darkTheme } from './dark-theme';
 
 export const Code = factory<CodeWrapper>((props)=>{
   const [codeFiles, setCodeFiles] = useState<CodeFileProps[]>([]);
@@ -13,12 +15,35 @@ export const Code = factory<CodeWrapper>((props)=>{
   const [width, setWidth] = useState(72);
   const [prevX,setPrevX] = useState();
   const [prevWidth, setPrevWidth] = useState();
-  const cache = new Map();
+  const [cache, setCache] = useState({});
+  const [init, setInit] = useState(true);
   useEffect(()=>{
     if (codeFiles[0]){
       setActiveCode(codeFiles[0].name);
     }
   }, [codeFiles]);
+  useMemo(async ()=>{
+    if (codeFiles.length>1){
+      return;
+    }
+    setInit(true)
+    const languages=codeFiles.map(file => file.language);
+    const hl = await useHighligther({
+      langs: languages,
+      themes: [],
+    }, [darkTheme as unknown as Record<string, string>])
+    const tmpCache = {};
+    for (const file of codeFiles) {
+      const {name, code, language} = file;
+      tmpCache[name] = hl.codeToHtml(code, {
+        lang: language,
+        theme: 'dark-theme',
+      });
+    }
+    setCache(tmpCache);
+    hl.dispose()
+    setInit(false)
+  }, [codeFiles])
   return (
     <CodeContext.Provider value={{
       codeFiles,
@@ -33,7 +58,9 @@ export const Code = factory<CodeWrapper>((props)=>{
       setPrevX,
       prevWidth,
       setPrevWidth,
-      cache
+      cache,
+      setCache,
+      init
     }}>
       <div className={style.root}>
         <CodeHeader />

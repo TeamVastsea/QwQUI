@@ -27,6 +27,7 @@
     "react": "18.3.1"
   },
   "devDependencies": {
+    "@koale/useworker": "^4.0.2",
     "@qwqui/tools": "workspace:^"
   },
   "dependencies": {

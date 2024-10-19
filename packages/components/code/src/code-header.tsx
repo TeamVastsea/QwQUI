@@ -66,11 +66,9 @@ export const CodeHeader = () => {
     setPrevWidth,
     setPrevX,
     activeCode,
-    setActiveCode
+    setActiveCode,
+    init
   } = useContext<CodeContextType>(CodeContext);
-  useEffect(()=>{
-    console.log(x,width)
-  },[x,width]);
   const vars = resolveCssVar('active-block', {x, width})
   const onMouseEnter = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setPrevX(x);
@@ -115,7 +113,9 @@ export const CodeHeader = () => {
         }
       </div>
       <CopyIcon className={style.copy} onClick={copyActiveCode} />
-      <div className={style['root__active_block']} style={vars}></div>
+      {
+        !init && <div className={style['root__active_block']} style={vars}></div>
+      }
     </div>
   )
 }
