@@ -2,6 +2,8 @@ import { BundledHighlighterOptions, BundledLanguage, BundledTheme, createHighlig
 import { CodeFileProps } from "../code.types";
 import { useMemo, useState } from "react";
 import { CodeContextType } from "../code-context";
+import {lineNumberTransformer} from './transformer';
+// import { darkTheme } from "../dark-theme";
 
 export const useHighligther = async (
   hightlighterOptions: BundledHighlighterOptions<BundledLanguage, BundledTheme>,
@@ -44,6 +46,9 @@ export const useHighlightCode = (
       const html = hl.codeToHtml(codefile.code, {
         lang: codefile.language,
         theme: 'dark-theme',
+        transformers: [
+          lineNumberTransformer()
+        ]
       })
       return html
     })

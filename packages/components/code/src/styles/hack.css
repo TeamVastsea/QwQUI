@@ -1,4 +1,10 @@
-code {
+.line-number {
+  display: inline-block;
+  text-align: right;
+  margin-right: 8px;
+  color: #fff;
+}
+/* code {
   counter-reset: step;
   counter-increment: step 0;
 }
@@ -11,4 +17,4 @@ code {
   margin-right: 8px;
   text-align: right;
   min-width: 2.5em;
-}
+} */
