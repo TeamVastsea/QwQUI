@@ -9,7 +9,6 @@ import { useHighligther } from './hooks/useParser';
 import { darkTheme } from './dark-theme';
 
 export const Code = factory<CodeWrapper>((props)=>{
-  const [loading, setLoading] = useState(false);
   const [codeFiles, setCodeFiles] = useState<CodeFileProps[]>([]);
   const [activeCode, setActiveCode] = useState('');
   const [x, setX] = useState(0);
@@ -23,19 +22,10 @@ export const Code = factory<CodeWrapper>((props)=>{
       setActiveCode(codeFiles[0].name);
     }
   }, [codeFiles]);
-  useEffect(()=>{
-    setLoading(true)
-    requestAnimationFrame(()=>{
-      requestAnimationFrame(()=>{
-        setLoading(false)
-      })
-    })
-  }, [activeCode])
   useMemo(async ()=>{
     if (codeFiles.length>1){
       return;
     }
-    setLoading(true)
     setInit(true)
     const languages=codeFiles.map(file => file.language);
     const hl = await useHighligther({
@@ -53,7 +43,6 @@ export const Code = factory<CodeWrapper>((props)=>{
     setCache(tmpCache);
     hl.dispose()
     setInit(false)
-    setLoading(false)
   }, [codeFiles])
   return (
     <CodeContext.Provider value={{
