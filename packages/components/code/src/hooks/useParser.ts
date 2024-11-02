@@ -3,19 +3,24 @@ import { CodeFileProps } from "../code.types";
 import { useMemo, useState } from "react";
 import { CodeContextType } from "../code-context";
 import {lineNumberTransformer} from './transformer';
-// import { darkTheme } from "../dark-theme";
+
+let hlCache:HighlighterGeneric<BundledLanguage, BundledTheme> | null = null;
 
 export const useHighligther = async (
   hightlighterOptions: BundledHighlighterOptions<BundledLanguage, BundledTheme>,
   theme: Record<string, string>[],
 ) => {
+  if(hlCache){
+    return hlCache;
+  }
   return createHighlighter(hightlighterOptions)
   .then(async (hl) => {
     await hl.loadTheme(...theme as unknown as Record<string,string>[]);
-    return hl;
+    hlCache = hl;
+    return hlCache;
   })
+  .then((hl) => hl)
 }
-let globalHl: HighlighterGeneric<BundledLanguage, BundledTheme>;
 export const useHighlightCode = (
   codefile:CodeFileProps,
   cache: Record<string,string>,
@@ -25,8 +30,8 @@ export const useHighlightCode = (
 ) => {
   const [html, setHTML] = useState('');
   const [loading, setLoading] = useState(true);
+  const hl = useHighligther(hightlighterOptions, theme)
   useMemo(()=>{
-    const hl = useHighligther(hightlighterOptions, theme)
     if (!codefile){
       return;
     }
