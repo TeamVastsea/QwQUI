@@ -3,4 +3,9 @@
   padding: 11px 12px;
   font-family: 'Inter';
   font-weight: regular;
+  opacity: 1;
+  --line-number-width: 48px;
+  &[aria-hidden=true]{
+    opacity: 0;
+  }
 }

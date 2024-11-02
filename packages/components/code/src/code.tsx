@@ -75,8 +75,8 @@ export const Code = factory<CodeWrapper>((props)=>{
     }}>
       <div className={style.root}>
         <CodeHeader />
-        {!loading && <CodeBody />}
-        {!loading && props.children}
+        <CodeBody />
+        {props.children}
       </div>
     </CodeContext.Provider>
   )

@@ -10,6 +10,7 @@ export const CodeBody = () => {
   const {activeCode,codeFiles, cache, setCache,init} = useContext<CodeContextType>(CodeContext);
   const [codeLanguage, setCodeLanguage] = useState('');
   const [activeCodeFile, setActvieCodeFile] = useState<CodeFileProps>();
+  const [hidden, setHidden] = useState(false);
   const codeBodyDom = useRef<HTMLDivElement>();
   useEffect(()=>{
     const [codeFile] = codeFiles.filter((file) => file.name === activeCode);
@@ -27,6 +28,7 @@ export const CodeBody = () => {
     if(!codeBodyDom.current && loading){
       return;
     }
+    setHidden(true);
     const ele = codeBodyDom.current;
     const lastChild= ele.querySelectorAll('code > span:last-child > :first-child')[0];
     if (lastChild){
@@ -34,8 +36,9 @@ export const CodeBody = () => {
       ele.style['--line-number-width']=`${width}px`;
       ele.style.setProperty('--line-number-width', `${width}px`)
     }
+    setHidden(false);
   },[init, loading]);
   return  (
-    <div ref={codeBodyDom} className={style.root} dangerouslySetInnerHTML={{__html: html}}></div>
+    <div ref={codeBodyDom} aria-hidden={hidden} className={style.root} dangerouslySetInnerHTML={{__html: html}}></div>
   )
 }
