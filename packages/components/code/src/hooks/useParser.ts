@@ -25,8 +25,8 @@ export const useHighlightCode = (
 ) => {
   const [html, setHTML] = useState('');
   const [loading, setLoading] = useState(true);
-  const hl = useHighligther(hightlighterOptions, theme)
   useMemo(()=>{
+    const hl = useHighligther(hightlighterOptions, theme)
     if (!codefile){
       return;
     }
@@ -36,12 +36,7 @@ export const useHighlightCode = (
       setLoading(false)
       return;
     }
-    hl.then(hl=>{
-      if (!globalHl) {
-        globalHl = hl;
-      }
-      return globalHl;
-    })
+    hl
     .then((hl) => {
       const html = hl.codeToHtml(codefile.code, {
         lang: codefile.language,

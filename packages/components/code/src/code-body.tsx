@@ -24,7 +24,7 @@ export const CodeBody = () => {
     themes:[],
   }, [darkTheme as unknown as Record<string,string>]);
   useEffect(()=>{
-    if(!codeBodyDom.current && init && loading){
+    if(!codeBodyDom.current && loading){
       return;
     }
     const ele = codeBodyDom.current;
@@ -33,7 +33,6 @@ export const CodeBody = () => {
       const width = (lastChild as HTMLElement).offsetWidth;
       ele.style['--line-number-width']=`${width}px`;
       ele.style.setProperty('--line-number-width', `${width}px`)
-      console.log(ele)
     }
   },[init, loading]);
   return  (
