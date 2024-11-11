@@ -3,11 +3,12 @@ import { CodeContext, CodeContextType } from "./code-context"
 import style from './styles/code-body.module.scss';
 import './styles/hack.css';
 import {darkTheme} from './dark-theme'
+import {noColorTheme} from './no-colored'
 import { useHighlightCode} from "./hooks/useParser";
 import { CodeFileProps } from "./code.types";
 
 export const CodeBody = () => {
-  const {activeCode,codeFiles, cache, setCache,init} = useContext<CodeContextType>(CodeContext);
+  const {activeCode,codeFiles, cache, setCache,init, showRow, colored} = useContext<CodeContextType>(CodeContext);
   const [codeLanguage, setCodeLanguage] = useState('');
   const [activeCodeFile, setActvieCodeFile] = useState<CodeFileProps>();
   const [hidden, setHidden] = useState(false);
@@ -23,7 +24,7 @@ export const CodeBody = () => {
   const {html,loading} = useHighlightCode(activeCodeFile, cache, setCache, {
     langs: [codeLanguage],
     themes:[],
-  }, [darkTheme as unknown as Record<string,string>]);
+  }, [darkTheme as unknown as Record<string,string>, noColorTheme as unknown as Record<string,string>], showRow, colored);
   useEffect(()=>{
     if(!codeBodyDom.current && loading){
       return;

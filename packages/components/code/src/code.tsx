@@ -60,10 +60,12 @@ export const Code = factory<CodeWrapper>((props)=>{
       setPrevWidth,
       cache,
       setCache,
-      init
+      init,
+      showRow: props.showRow,
+      colored: props.isColored ?? true
     }}>
       <div className={style.root}>
-        <CodeHeader />
+        <CodeHeader showCopy={props.showCopy} showTrafficLight={props.showTrafficLight ?? true} />
         <CodeBody />
         {props.children}
       </div>

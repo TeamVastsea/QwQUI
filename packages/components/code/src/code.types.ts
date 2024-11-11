@@ -16,7 +16,7 @@ import React from "react";
  */
 export interface CodeWrapper {
   color: string;
-  showRaw: boolean;
+  showRow: boolean;
   showCopy: boolean;
   showTrafficLight: boolean;
   logo: React.ReactNode;

@@ -54,7 +54,7 @@ const TrafficLight = () => {
   )
 }
 
-export const CodeHeader = () => {
+export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, showTrafficLight:boolean}) => {
   const {
     codeFiles,
     x,
@@ -95,7 +95,7 @@ export const CodeHeader = () => {
   }
   return (
     <div className={style.root}>
-      <TrafficLight />
+      {showTrafficLight && <TrafficLight />}
       <div className={style['root__items-wrapper']}>
         {
           codeFiles.map((item) => {
@@ -112,7 +112,9 @@ export const CodeHeader = () => {
           })
         }
       </div>
-      <CopyIcon className={style.copy} onClick={copyActiveCode} />
+      {
+        showCopy && <CopyIcon className={style.copy} onClick={copyActiveCode} />
+      }
       {
         !init && <div className={style['root__active_block']} style={vars}></div>
       }

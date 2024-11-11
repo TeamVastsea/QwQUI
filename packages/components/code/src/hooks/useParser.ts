@@ -1,4 +1,4 @@
-import { BundledHighlighterOptions, BundledLanguage, BundledTheme, createHighlighter, HighlighterGeneric } from "shiki/index.mjs";
+import { BundledHighlighterOptions, BundledLanguage, BundledTheme, createHighlighter, HighlighterGeneric, ShikiTransformer } from "shiki/index.mjs";
 import { CodeFileProps } from "../code.types";
 import { useMemo, useState } from "react";
 import { CodeContextType } from "../code-context";
@@ -27,13 +27,21 @@ export const useHighlightCode = (
   setCache: CodeContextType['setCache'],
   hightlighterOptions: BundledHighlighterOptions<BundledLanguage, BundledTheme>,
   theme: Record<string, string>[],
+  showRow: boolean,
+  colored: boolean
 ) => {
   const [html, setHTML] = useState('');
   const [loading, setLoading] = useState(true);
+  const transformers:ShikiTransformer[] = [];
   const hl = useHighligther(hightlighterOptions, theme)
   useMemo(()=>{
     if (!codefile){
       return;
+    }
+    if (showRow) {
+      if (!transformers.some(transformer => transformer.name === '@qwqui/code/line-number-transformer')){
+        transformers.push(lineNumberTransformer())
+      }
     }
     setLoading(true);
     if (cache[codefile.name]) {
@@ -45,11 +53,10 @@ export const useHighlightCode = (
     .then((hl) => {
       const html = hl.codeToHtml(codefile.code, {
         lang: codefile.language,
-        theme: 'dark-theme',
-        transformers: [
-          lineNumberTransformer()
-        ]
+        theme: colored ? 'dark-theme' : 'noColor',
+        transformers,
       })
+      
       return html
     })
     .then((html)=>{
@@ -60,6 +67,6 @@ export const useHighlightCode = (
       })
       setLoading(false)
     })
-  }, [codefile]);
+  }, [codefile, showRow]);
   return {html,setHTML,loading,setLoading}
 }
