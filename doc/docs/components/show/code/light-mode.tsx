@@ -4,7 +4,7 @@ import {Code, CodeFile} from '@qwqui/core';
 export default function App(){
   const codes = Array.from({length:10}).fill('console.log("Hello world");').join('\n');
   return (
-    <Code mode='light'>
+    <Code mode='light' showCopy showRow>
       <CodeFile name="index.ts" code="// Comment" language="javascript" />
       <CodeFile name="file.ts" code={codes} language="javascript" />
     </Code>

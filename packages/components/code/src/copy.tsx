@@ -1,14 +1,19 @@
-export const CopyIcon = (props:{onClick?:()=>void,className?:string}) => {
+export const CopyIcon = (props: { onClick?: () => void, className?: string, mode: 'light' | 'dark' }) => {
   return (
-    <svg className={props.className} onClick={props.onClick} width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-      <rect width="19" height="19" fill="url(#pattern0_1_16)" />
+    <svg className={props.className} onClick={props.onClick} width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {
+        props.mode === 'light' ? <rect width="19" height="19" fill="url(#pattern0_77_35)" /> : <rect width="19" height="19" fill="url(#pattern0_1_16)" />
+      }
       <defs>
-        <pattern id="pattern0_1_16" patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlinkHref="#image0_1_16" transform="scale(0.0263158)" />
+        <pattern id="pattern0_77_35" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_77_35" transform="scale(0.0147059)" />
         </pattern>
-        <image id="image0_1_16" width="38" height="38" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAACQAAAAAQAAAJAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAACagAwAEAAAAAQAAACYAAAAAlsrBzgAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAdlJREFUWAntVgFSxDAIbB3/ZXyZuZclvqzuKmQ42lou7dxUp8wgZCFAIck5DBf9kw6Me79jmqYkMVRqyDqOY9XFUyWKKuDfKD+1ICZDNdlUVKBbNqapq7jwKJEpsSBQ+v47DB8ibxhZFr0J+BNrPs0wDMeNGEkKeJFMwpm6uOEHzDPnRwHEsSNj2CJMnZSWYgK3+wrWZEtlaV8IQ5RkImW7CXixNuj0Vb4ryu2ztmRtYR2JWhC/SYqA2KRZcrNjZtM8L6psyOrtfKPAvDw3b8O6Cr/TD7qnKkDyBl2/qtIrkThjL/lQinbs0KSRYFdhkS5Zn9N2rPvw48pnfqEc/vaxwBMW+lNE/NP7ENxFTC5vzt0rzeSCTz6B4k4m6wdbEXu2uNW7OoYOVATm+1VtMNGJvxmcHatmHVK7CmPktfGs4aFqjNNpD/9pC+seJc5YQueTH53iZiqrY7c+Xu8qTJLrTc0uqOINhn999AJ0FcYkSLb0XwWL8beSHautyqDSVRhj+xFqvjVc7VF52sP/Zwur0voUHUHQbzNeuGM47DmY9Fc3F6euOY9rBsURiNc/ybqK3COSbL7tvij8SvCRNHvr/Jdudkw3oCp+KXkvPfzY7k147b86sNSBL5NWL5sxvvb9AAAAAElFTkSuQmCC" />
+        <pattern id="pattern0_1_16" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_1_16" transform="scale(0.0147059)" />
+        </pattern>
+        <image id="image0_77_35" width="68" height="68" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAACQAAAAAQAAAJAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAESgAwAEAAAAAQAAAEQAAAAA0uEiKgAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAwVJREFUeAHtmtF16jAMhktvB+kUvFbsww4NOzBAN8G8MsXdpJVu5TYRwZaIHJJz5XM4jows/f4iJynp01O0IBAEgkAQCAJBYCYCG2ue/X4POOfdOs/J/0xxjsdj5xTvKowaCIM4XUV43MAOwSTv9M+agAijQ78lwSDZTaq0WiEMo0lyWtXElrBKdhNjDKZrgHwOZnwbCbvDyHjLIeDg8uS4bp2X0gq4OqSLqwAZvGAn+g41vWEHdNyiqa4hvcSHFheyXvzqIW+RXJ3ueooVgurobCyuIZQORdHHvVkrJLkrWFhAK5CFyfeXE0AE09o1RLjbTbwrAM+St0t7MN2MM7vRM0rSTfn1agaEQRAE+E03y1HO944a6C7UWbI22TIohESc8AP4eWQjKJ+sR6XDHQgnn2t7qBaJTgSm0zi32DJjMBKKob1NfcsGHPwN+3zMQ/+gVK8rrkBunAXzPs4ruKNPec6NSqWT9eOTffu925ZBAYCBZXXMCaO/rvwjUn7Ez98B68z2Ve8GBCODiE7l2YmxWU3OnyxJPYHIvPl5QI7PbUsdsooHejyB0IVsiS1ZRHkCkXlNQuTkR9ktgTxqTZPyBhCBL4AEEEFAmFEhAUQQEGZUSAARBIQZFRJABAFhRoUEEEFAmFEhAUQQEKa1Qoo/rojYqzRrQMZ+k+xWuVKl6CKQG68C6R0HKOOvzq0IhFcjq4SGT6tbqVJwFQj/cj0GRZliXW5VILScESi7dS1Tr1b95o6hdPrQ6/RUVcg6l3af6v8BCFjQtARiEmIRPdH3XJrvCUTeiZbyJs+kwxOIBE9v2js5OKfN+UHkTMIemH8G1gTjcrn83W63gCFee2EAxzb4XeqNzXLIMOTfXvTvGR8lAZvSl9bv+JF+7Ck2Yay8d+m4ZQMMTtuE+kFDGNX1Vh0GERXGjTOjmNncRfXPO25bJi+HtgdtE7Qhjy2gV8Egne4V0l/8AqoloR6CQb2qNQVCCvi6AqzGdAvkOfd0B5pkAXFPkpgTBIJAEAgCQSAITCLwBVJQrVvbwz0kAAAAAElFTkSuQmCC" />
+        <image id="image0_1_16" width="68" height="66" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABCCAYAAADuSnCvAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAACQAAAAAQAAAJAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAESgAwAEAAAAAQAAAEIAAAAAXaHXigAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAArFJREFUeAHtmQFy4yAMReOdvVfpyUJOBj1Z9quDO+QX29AITLPSDGNEsPR5Bsw4l4uZETACRsAIGIFeBJbWwPf73eGea+t9Sv0/JM6yLF4p3rcw1UASiPAtwnkN7wATtdP/qQkIGB79ZoIhss+ZpQIDZVZTf0iHS0ZIyOMgi/Bv1NbbdSkBz4wuS6c4GLAozY5VWPGe3o3QFFByG6cHWRmI7z3gmviZrrF6kDig5DZWQA0d5T5Vb5ksZ8zqL1ltBfKSEPJBGZCcBup/yVd3sQG5FJRfl+q5UsDP4z3qUf0ki8GEfEfNBnc4GOmLElDONH8olDp0WTIgIELkFOlQzrRrehq+VoQ6kARj1PKoHaeAqYLSYw8pwYhQLmtbrj3NpeBvuK711HQRKM/tKwgQUHLjJGuyzys68slW7vUPnQY5G1pkGf/cEDSg5Oa2oqGTbKJsfqv/iHaIKT0gt5dbcw/hRDI9/V7y3r+l/LEljyYQzrueB7h9tM86SnvclyZNILKRzWixRZQmEM7bJIRvPsvvCeSsMT2V14AQPgNiQIgAuTZDDAgRINdmiAEhAuTaDDEgRIBcmyEGhAiQazPEgBABcltnyO7HFYr9K90jIDcalXw39dT2Uu4ukI2/Aq+A4l6KQjaYXSCpH88SaX7uc34mYLbqIZD05boEZbaxqOg5BCJZClDeVbJPGKQKyAoFYFaLE45FRVI1EJVsvyDI/wDEtTyHnkCahLSIfrLvx979mkD4TTTLP3nn6JDDGgqb33savX+DmOZ//1U1QUBgIiJKNUllMMn7Ey1LZfyqbhDg0LF0io1oX9eu1HuaQ3BZJnJ9MDkzPDSMcDaeTOFhDW/yI8ZfzDEhlPNg5IQmABOgweWajurd11QStIoa9Qq8ycCxZUS5mhkBI2AEjIARmIPAP+vKfnSdPCjMAAAAAElFTkSuQmCC" />
       </defs>
     </svg>
-
   )
 }

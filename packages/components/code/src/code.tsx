@@ -5,7 +5,20 @@ import { useEffect, useState } from 'react';
 import style from './styles/code-wrapper.module.scss';
 import { CodeBody } from './code-body';
 
+const DEFAULT_PROPS:CodeWrapper = {
+  mode: 'dark',
+  showRow: false,
+  showCopy: false,
+  showTrafficLight: true,
+  logo: null,
+  isColored: true,
+}
+
 export const Code = (props:CodeWrapper)=>{
+  const _props = {
+    ...DEFAULT_PROPS,
+    ...props,
+  }
   const [codeFiles, setCodeFiles] = useState<CodeFileProps[]>([]);
   const [activeCode, setActiveCode] = useState('');
   const [x, setX] = useState(0);
@@ -34,12 +47,12 @@ export const Code = (props:CodeWrapper)=>{
       setPrevWidth,
       cache,
       setCache,
-      showRow: props.showRow,
-      colored: props.isColored ?? true,
-      mode: props.mode ?? 'dark'
+      showRow: _props.showRow,
+      colored: _props.isColored,
+      mode: _props.mode,
     }}>
-      <div className={style.root} data-theme={props.mode ?? 'dark'}>
-        <CodeHeader showCopy={props.showCopy} showTrafficLight={props.showTrafficLight ?? true} />
+      <div className={style.root} data-theme={_props.mode}>
+        <CodeHeader showCopy={_props.showCopy} showTrafficLight={_props.showTrafficLight} />
         <CodeBody />
         {props.children}
       </div>

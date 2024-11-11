@@ -118,7 +118,7 @@ export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, show
         }
       </div>
       {
-        showCopy && <CopyIcon className={style.copy} onClick={copyActiveCode} />
+        showCopy && <CopyIcon mode={mode} className={style.copy} onClick={copyActiveCode} />
       }
       <div className={style['root__active_block']} style={vars}></div>
     </div>

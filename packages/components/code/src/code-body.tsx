@@ -45,7 +45,7 @@ export const CodeBody = () => {
     setHidden(false);
   },[loading]);
   return  (
-    <div ref={codeBodyDom} aria-hidden={hidden} className={style.root}>
+    <div ref={codeBodyDom} aria-hidden={hidden} className={style.root} data-theme={mode}>
       {!hidden ? nodes : null}
     </div>
   )
