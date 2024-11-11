@@ -1,4 +1,7 @@
 .root {
   background: #191919;
   border-radius: 10;
+  &[data-theme="light"] {
+    background: #F2F3F5;
+  }
 }

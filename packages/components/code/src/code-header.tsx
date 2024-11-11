@@ -67,6 +67,7 @@ export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, show
     setPrevX,
     activeCode,
     setActiveCode,
+    mode
   } = useContext<CodeContextType>(CodeContext);
   const vars = resolveCssVar('active-block', {x, width})
   const onMouseEnter = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -98,7 +99,7 @@ export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, show
     }
   },[codeFiles])
   return (
-    <div className={style.root}>
+    <div className={style.root} data-theme={mode}>
       {showTrafficLight && <TrafficLight />}
       <div className={style['root__items-wrapper']}>
         {

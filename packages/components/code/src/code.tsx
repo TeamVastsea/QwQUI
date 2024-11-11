@@ -18,12 +18,6 @@ export const Code = (props:CodeWrapper)=>{
       setActiveCode(codeFiles[0].name);
     }
   }, [codeFiles]);
-  // useMemo(async ()=>{
-  //   if (codeFiles.length>1){
-  //     return;
-  //   }
-  //   setInit(false)
-  // }, [codeFiles])
   return (
     <CodeContext.Provider value={{
       codeFiles,
@@ -41,9 +35,10 @@ export const Code = (props:CodeWrapper)=>{
       cache,
       setCache,
       showRow: props.showRow,
-      colored: props.isColored ?? true
+      colored: props.isColored ?? true,
+      mode: props.mode ?? 'dark'
     }}>
-      <div className={style.root}>
+      <div className={style.root} data-theme={props.mode}>
         <CodeHeader showCopy={props.showCopy} showTrafficLight={props.showTrafficLight ?? true} />
         <CodeBody />
         {props.children}

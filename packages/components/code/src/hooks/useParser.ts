@@ -12,7 +12,8 @@ export const useHighlightCode = (
   hightlighterOptions: BundledHighlighterOptions<BundledLanguage, BundledTheme>,
   theme: Record<string, string>[],
   showRow: boolean,
-  colored: boolean
+  colored: boolean,
+  mode: 'dark' | 'light'
 ) => {
   const [nodes, setNodes] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,8 +35,8 @@ export const useHighlightCode = (
     }
     const hl = hlCache;
     const nodes = hl.codeToHast(codefile.code, {
-      lang: codefile.language,
-      theme: colored ? 'dark-theme' : 'noColor',
+      lang: !colored ? 'text' : codefile.language,
+      theme: `${mode}-theme`,
       transformers,
     })
     setNodes(

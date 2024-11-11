@@ -18,5 +18,6 @@ export type CodeContextType = {
   cache: Record<string, string>;
   setCache: React.Dispatch<React.SetStateAction<Record<string,string>>>;
   showRow: boolean;
-  colored: boolean
+  colored: boolean;
+  mode: 'dark' | 'light'
 }

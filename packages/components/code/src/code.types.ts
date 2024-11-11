@@ -15,7 +15,7 @@ import React from "react";
  </div>
  */
 export interface CodeWrapper {
-  color?: string;
+  mode?: 'dark' | 'light',
   showRow?: boolean;
   showCopy?: boolean;
   showTrafficLight?: boolean;
