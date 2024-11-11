@@ -1,0 +1,6 @@
+.line-number {
+  display: inline-block;
+  text-align: right;
+  margin-right: 8px;
+  color: var(--color);
+}
