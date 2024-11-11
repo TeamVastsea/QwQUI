@@ -1,7 +1,14 @@
+:root {
+  --qwqui-code-wrapper-background: #191919;
+}
+
 .root {
-  background: #191919;
+  background: var(--qwqui-code-wrapper-background);
   border-radius: 10;
   &[data-theme="light"] {
-    background: #F2F3F5;
+    --qwqui-code-wrapper-background: #f2f3f5;
+  }
+  &[data-theme="dark"] {
+    --qwqui-code-wrapper-background: #191919;
   }
 }

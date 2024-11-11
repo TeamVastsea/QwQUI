@@ -38,7 +38,7 @@ export const Code = (props:CodeWrapper)=>{
       colored: props.isColored ?? true,
       mode: props.mode ?? 'dark'
     }}>
-      <div className={style.root} data-theme={props.mode}>
+      <div className={style.root} data-theme={props.mode ?? 'dark'}>
         <CodeHeader showCopy={props.showCopy} showTrafficLight={props.showTrafficLight ?? true} />
         <CodeBody />
         {props.children}
