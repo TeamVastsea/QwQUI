@@ -67,7 +67,6 @@ export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, show
     setPrevX,
     activeCode,
     setActiveCode,
-    init
   } = useContext<CodeContextType>(CodeContext);
   const vars = resolveCssVar('active-block', {x, width})
   const onMouseEnter = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -93,6 +92,11 @@ export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, show
     setPrevWidth(width);
     setActiveCode(name);
   }
+  useEffect(()=>{
+    if (!activeCode && codeFiles.length){
+      setActiveCode(codeFiles[0].name);
+    }
+  },[codeFiles])
   return (
     <div className={style.root}>
       {showTrafficLight && <TrafficLight />}
@@ -115,9 +119,7 @@ export const CodeHeader = ({showCopy,showTrafficLight}: {showCopy: boolean, show
       {
         showCopy && <CopyIcon className={style.copy} onClick={copyActiveCode} />
       }
-      {
-        !init && <div className={style['root__active_block']} style={vars}></div>
-      }
+      <div className={style['root__active_block']} style={vars}></div>
     </div>
   )
 }

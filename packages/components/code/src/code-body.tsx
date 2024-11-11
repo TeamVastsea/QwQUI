@@ -8,7 +8,7 @@ import { useHighlightCode} from "./hooks/useParser";
 import { CodeFileProps } from "./code.types";
 
 export const CodeBody = () => {
-  const {activeCode,codeFiles, cache, setCache,init, showRow, colored} = useContext<CodeContextType>(CodeContext);
+  const {activeCode,codeFiles, showRow, colored} = useContext<CodeContextType>(CodeContext);
   const [codeLanguage, setCodeLanguage] = useState('');
   const [activeCodeFile, setActvieCodeFile] = useState<CodeFileProps>();
   const [hidden, setHidden] = useState(false);
@@ -21,7 +21,7 @@ export const CodeBody = () => {
     setActvieCodeFile(codeFile);
     setCodeLanguage(codeFile.language);
   }, [activeCode, codeFiles]);
-  const {html,loading} = useHighlightCode(activeCodeFile, cache, setCache, {
+  const {nodes,loading} = useHighlightCode(activeCodeFile, {
     langs: [codeLanguage],
     themes:[],
   }, [darkTheme as unknown as Record<string,string>, noColorTheme as unknown as Record<string,string>], showRow, colored);
@@ -38,8 +38,10 @@ export const CodeBody = () => {
       ele.style.setProperty('--line-number-width', `${width}px`)
     }
     setHidden(false);
-  },[init, loading]);
+  },[loading]);
   return  (
-    <div ref={codeBodyDom} aria-hidden={hidden} className={style.root} dangerouslySetInnerHTML={{__html: html}}></div>
+    <div ref={codeBodyDom} aria-hidden={hidden} className={style.root}>
+      {!hidden ? nodes : null}
+    </div>
   )
 }

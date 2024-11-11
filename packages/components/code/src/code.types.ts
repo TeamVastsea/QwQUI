@@ -15,12 +15,12 @@ import React from "react";
  </div>
  */
 export interface CodeWrapper {
-  color: string;
-  showRow: boolean;
-  showCopy: boolean;
-  showTrafficLight: boolean;
-  logo: React.ReactNode;
-  isColored: boolean;
+  color?: string;
+  showRow?: boolean;
+  showCopy?: boolean;
+  showTrafficLight?: boolean;
+  logo?: React.ReactNode;
+  isColored?: boolean;
   children?: React.ReactNode
 }
 

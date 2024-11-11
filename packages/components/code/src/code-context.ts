@@ -17,7 +17,6 @@ export type CodeContextType = {
   setPrevWidth: React.Dispatch<React.SetStateAction<number>>;
   cache: Record<string, string>;
   setCache: React.Dispatch<React.SetStateAction<Record<string,string>>>;
-  init: boolean;
   showRow: boolean;
   colored: boolean
 }
