@@ -9,7 +9,7 @@ interface StackVar {
   '--stack-height': string
 }
 
-export const Stack = factory<StackProps>((props) => {
+export const Stack:React.FC<StackProps> = factory<StackProps>((props) => {
   const stackStyleVar = resolveCssVar<'stack', StackProps, StackVar>('stack', {
     gap: 0,
     justify: 'start',
