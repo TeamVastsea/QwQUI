@@ -10,3 +10,4 @@ export type DefaultPropType = {
 
 export type PropsType<T = unknown> = T & DefaultPropType
 export type PropsTypeOptional<T = unknown> = Partial<T & DefaultPropType>
+export type PropsTypePartialDefault<T = unknown> = T & Partial<DefaultPropType>;
