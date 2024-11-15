@@ -10,10 +10,20 @@
     "@qwqui/center": "1.0.0",
     "@qwqui/ripple": "1.0.0",
     "@qwqui/theme": "1.0.0",
-    "@qwqui/stack": "0.0.0"
+    "@qwqui/stack": "0.0.0",
+    "@qwqui/code": "0.0.0",
+    "@qwqui/flex": "0.0.0",
+    "@qwqui/group": "0.0.0",
+    "@qwqui/tools": "0.0.0"
   },
   "changesets": [
+    "big-countries-punch",
+    "big-swans-sneeze",
     "brown-penguins-peel",
-    "olive-pugs-accept"
+    "many-houses-hear",
+    "olive-pugs-accept",
+    "slimy-buckets-own",
+    "stupid-bananas-develop",
+    "two-snakes-build"
   ]
 }
