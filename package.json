@@ -37,7 +37,7 @@
   },
   "scripts": {
     "prebuild": "esno internal/create-core-entry.ts && pnpm --filter @qwqui/* clean:dist",
-    "predev": "esno internal/create-core-entry.ts && pnpm --filter @qwqui/* clean:dist",
+    "predev": "esno internal/create-core-entry.ts && esno internal/create-config-provider-type.ts &&  pnpm --filter @qwqui/* clean:dist",
     "test:type": "tsc --noEmit",
     "test": "jest",
     "build": "pnpm --filter !@qwqui/core build && pnpm --filter @qwqui/core build",
@@ -46,7 +46,8 @@
     "create:comp": "esno internal/create-component.ts",
     "dev": "pnpm -C doc dev",
     "build:site": "pnpm prebuild && pnpm --filter @qwqui/doc build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "esno": "esno"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",

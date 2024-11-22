@@ -28,7 +28,8 @@ export default defineConfig({
           alias: {
             '@qwqui/core': path.join(__dirname, '../packages/components'),
             '@qwqui/theme': path.join(__dirname, '../packages/theme/index.scss'),
-            '@qwqui/tools': path.join(__dirname, '../packages/tools')
+            '@qwqui/tools': path.join(__dirname, '../packages/tools'),
+            '@qwqui/config-provider': path.join(__dirname, '../packages/components/config-provider')
           },
         },
       },
