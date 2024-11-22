@@ -2,4 +2,6 @@ node_modules
 dist
 .rslib
 pnpm-lock.yaml
-packages/component/index.ts
+packages/components/index.ts
+packages/components/config-provider/src/*.type.ts
+packages/components/config-provider/src/config-provider.type.ts
