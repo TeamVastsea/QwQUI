@@ -3,4 +3,5 @@ dist
 .rslib
 pnpm-lock.yaml
 packages/components/index.ts
-packages/components/config-provider/*.type.ts
+packages/components/config-provider/src/*.type.ts
+packages/components/config-provider/src/config-provider.type.ts
