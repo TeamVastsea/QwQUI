@@ -207,9 +207,6 @@ importers:
 
   packages/components/code:
     dependencies:
-      '@qwqui/config-provider':
-        specifier: workspace:^
-        version: link:../config-provider
       hast-util-to-jsx-runtime:
         specifier: ^2.3.2
         version: 2.3.2
