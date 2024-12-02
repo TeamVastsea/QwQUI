@@ -1,0 +1,6 @@
+.grid {
+  display: grid;
+  &--rtl {
+    direction: rtl;
+  }
+}
