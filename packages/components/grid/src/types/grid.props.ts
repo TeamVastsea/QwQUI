@@ -1,5 +1,6 @@
 import { PropsTypeOptional } from "@qwqui/tools";
 import { createContext } from "react";
+import { ScreenSize } from "./common.props";
 
 export type GridContextState = {
   /**
@@ -23,6 +24,8 @@ export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
    * @default 24
    */
   rowGap?: number;
+}  & {
+  [size in ScreenSize]?: number;
 }
 
 export const GridContext = createContext<GridContextState>({});
