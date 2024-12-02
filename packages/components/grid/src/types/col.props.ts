@@ -16,7 +16,7 @@ export type ColProps = Exclude<PropsTypeOptional, 'w' | 'h'> & {
   /**
    * @zh flex属性值
    * @en Flex attribute value
-   * @default 0
+   * @default undefined
    */
   flex?: string;
 };

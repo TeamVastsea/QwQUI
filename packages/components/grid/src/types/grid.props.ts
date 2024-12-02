@@ -21,7 +21,7 @@ export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
   /**
    * @zh 行与行之间的间隔
    * @en Gap of row-to-row
-   * @default 24
+   * @default 0
    */
   rowGap?: number;
 }  & {

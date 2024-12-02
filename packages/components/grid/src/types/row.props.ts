@@ -24,7 +24,7 @@ export type RowProps = Exclude<PropsTypeOptional, 'w' | 'h'> & {
   /**
    * @zh 列与列之间的间距
    * @en The spacing between columns
-   * @default 24
+   * @default 0
    */
   gap?: number;
 }
