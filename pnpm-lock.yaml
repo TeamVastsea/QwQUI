@@ -219,6 +219,10 @@ importers:
         version: 18.3.1
 
   packages/components/grid:
+    dependencies:
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
     devDependencies:
       '@qwqui/tools':
         specifier: workspace:^
