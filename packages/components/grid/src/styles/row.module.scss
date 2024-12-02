@@ -1,10 +1,18 @@
 :root {
-  --grid-row-gap: 0
+  --grid-row-gap: 0;
+  --grid-row-cols: 24;
+  --grid-row-justify: start;
+  --grid-row-align: start;
+  --grid-row-wrap: nowrap
 }
 $grid-row-gap: var(--grid-row-gap);
+$grid-row-cols: var(--grid-row-cols);
+$grid-row-justify: var(--grid-row-justify);
+$grid-row-align: var(--grid-row-align);
+$grid-row-wrap: var(--grid-row-wrap);
 .row {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row $grid-row-wrap;
   margin-left: calc(($grid-row-gap/2) * -1px);
   margin-right: calc(($grid-row-gap/2) * -1px);
   row-gap: calc($grid-row-gap * 1px);
@@ -13,4 +21,6 @@ $grid-row-gap: var(--grid-row-gap);
   margin-top: 0;
   margin-bottom: 0;
   width: 100%;
+  align-items: $grid-row-align;
+  justify-content: $grid-row-justify;
 }

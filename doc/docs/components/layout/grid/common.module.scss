@@ -9,5 +9,15 @@
   color: white;
   &--deep {
     background: #66a5fd;
+    padding: 18px 0;
+    text-align: center;
   }
+}
+.xrow {
+  background: var(--rp-c-bg-mute);
+  padding: 8px 0px;
+}
+.hrow {
+  background: var(--rp-c-bg-mute);
+  height: 100px;
 }

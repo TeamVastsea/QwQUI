@@ -14,7 +14,10 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
     children,
     className,
     gap,
-    style
+    style,
+    justify='start',
+    align='start',
+    wrap=false
   } = props;
   const {cols} = useContext(GridContext)
   const [cssVars, setCssVars]  = useState<CSSProperties>({
@@ -24,9 +27,12 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
     setCssVars({
       ...cssVars,
       '--grid-row-cols': cols,
-      '--grid-row-gap': gap
+      '--grid-row-gap': gap,
+      '--grid-row-justify': justify,
+      '--grid-row-align': align,
+      '--grid-row-wrap': wrap ? 'wrap' : 'no-wrap'
     } as CSSProperties)
-  }, [cols]);
+  }, [cols,justify,align,wrap]);
   const classes = [className, styles.row].join(' ');
   return (
     <div style={{
