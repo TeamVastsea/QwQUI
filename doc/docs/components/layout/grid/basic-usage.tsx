@@ -3,7 +3,7 @@ import styles from './common.module.scss';
 
 export default function App(){
   return (
-    <Grid className={styles.grid}>
+    <Grid className={styles.grid} rowGap={8}>
       <Row> <Col className={styles.col}> 24 - 100% </Col> </Row>
       <Row>
         <Col className={styles.col} span="12"> 12 - 50% </Col>

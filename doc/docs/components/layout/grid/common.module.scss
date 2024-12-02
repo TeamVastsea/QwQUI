@@ -1,16 +1,14 @@
+.row {
+  margin-bottom: 8px;
+}
 .col {
   background: #1677ff;
   padding: 18px 0;
   text-align:center;
-  margin-bottom: 8px;
 }
 
 .col--deep {
   background: #66a5fd;
   padding: 18px 0;
   text-align:center;
-  margin-bottom: 8px;
-  &:last-child{
-    margin-bottom: 0;
-  }
 }

@@ -17,6 +17,12 @@ export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
    * @default 24
    */
   cols?: number;
+  /**
+   * @zh 行与行之间的间隔
+   * @en Gap of row-to-row
+   * @default 24
+   */
+  rowGap?: number;
 }
 
 export const GridContext = createContext<GridContextState>({});

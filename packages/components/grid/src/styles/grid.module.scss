@@ -1,5 +1,10 @@
+:root {
+  --grid-row-gap: 0;
+}
+$grid-row-gap: calc(var(--grid-row-gap) * 1px);
 .grid {
   display: grid;
+  row-gap: $grid-row-gap;
   &--rtl {
     direction: rtl;
   }
