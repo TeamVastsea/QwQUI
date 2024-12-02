@@ -13,7 +13,8 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
   const {
     children,
     className,
-    gap
+    gap,
+    style
   } = props;
   const {cols} = useContext(GridContext)
   const [cssVars, setCssVars]  = useState<CSSProperties>({
@@ -30,6 +31,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
   return (
     <div style={{
         ...cssVars,
+        ...style
       }}
       className={classes}
     >

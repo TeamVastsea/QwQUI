@@ -1,14 +1,13 @@
 .row {
   margin-bottom: 8px;
+  color: white;
 }
 .col {
   background: #1677ff;
   padding: 18px 0;
   text-align:center;
-}
-
-.col--deep {
-  background: #66a5fd;
-  padding: 18px 0;
-  text-align:center;
+  color: white;
+  &--deep {
+    background: #66a5fd;
+  }
 }
