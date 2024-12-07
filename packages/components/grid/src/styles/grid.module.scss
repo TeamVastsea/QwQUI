@@ -1,9 +1,13 @@
 :root {
   --grid-row-gap: 0;
+  --grid-wrap: nowrap;
 }
 $grid-row-gap: calc(var(--grid-row-gap) * 1px);
+$grid-wrap: var(--grid-wrap);
 .grid {
-  display: grid;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: $grid-wrap;
   row-gap: $grid-row-gap;
   &--rtl {
     direction: rtl;

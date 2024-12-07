@@ -27,5 +27,8 @@ export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
 }  & {
   [size in ScreenSize]?: number;
 }
-
+export type AutoGridContextState = {
+  setWrap?: React.Dispatch<React.SetStateAction<boolean>>
+}
+export const AutoGridContext = createContext<AutoGridContextState>({});
 export const GridContext = createContext<GridContextState>({});

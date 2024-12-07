@@ -1,11 +1,12 @@
 import { factory } from "@qwqui/tools";
-import { GridProps,GridContext } from "./types/grid.props";
-import React, { CSSProperties, useEffect, useState } from "react";
+import { GridProps,GridContext, AutoGridContext } from "./types/grid.props";
+import React, { CSSProperties, useEffect, useState} from "react";
 import styles from './styles/grid.module.scss';
 import { useScreenSize } from "./hooks/useScreenSize";
 
 export const Grid:React.FC<GridProps> = factory<GridProps>((props) => {
   const {children, className, style, rowGap=0} = props;
+  const [wrap, setWrap] = useState<boolean>(true);
   const classes = [
     className,
     styles.grid
@@ -20,13 +21,18 @@ export const Grid:React.FC<GridProps> = factory<GridProps>((props) => {
   return (
     <div style={{
       ...style,
-      '--grid-row-gap': rowGap
+      '--grid-row-gap': rowGap,
+      '--grid-wrap': wrap
     } as CSSProperties} className={classes}>
-      <GridContext.Provider value={{
-        cols
+      <AutoGridContext.Provider value={{
+        setWrap
       }}>
-        {children}
-      </GridContext.Provider>
+        <GridContext.Provider value={{
+          cols
+        }}>
+          {children}
+        </GridContext.Provider>
+      </AutoGridContext.Provider>
     </div>
   )
 },'Grid')

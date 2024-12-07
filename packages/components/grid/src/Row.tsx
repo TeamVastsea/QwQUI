@@ -1,7 +1,7 @@
 import {factory} from '@qwqui/tools';
 import React, { createContext, CSSProperties, useContext, useEffect, useState } from 'react';
 import { RowProps } from './types/row.props';
-import { GridContext } from './types/grid.props';
+import { AutoGridContext, GridContext } from './types/grid.props';
 import styles from './styles/row.module.scss';
 
 export type RowContextState = {
@@ -20,6 +20,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
     wrap=false
   } = props;
   const {cols} = useContext(GridContext)
+  const {setWrap} = useContext(AutoGridContext);
   const [cssVars, setCssVars]  = useState<CSSProperties>({
     '--grid-row-cols': cols
   } as CSSProperties)
@@ -33,6 +34,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
       '--grid-row-wrap': wrap ? 'wrap' : 'no-wrap'
     } as CSSProperties)
   }, [cols,justify,align,wrap]);
+  setWrap(true);
   const classes = [className, styles.row].join(' ');
   return (
     <div style={{
