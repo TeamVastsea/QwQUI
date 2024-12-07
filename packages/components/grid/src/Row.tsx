@@ -34,7 +34,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
       '--grid-row-wrap': wrap ? 'wrap' : 'no-wrap'
     } as CSSProperties)
   }, [cols,justify,align,wrap]);
-  setWrap(true);
+  useEffect(()=>{setWrap(true);}, [])
   const classes = [className, styles.row].join(' ');
   return (
     <div style={{

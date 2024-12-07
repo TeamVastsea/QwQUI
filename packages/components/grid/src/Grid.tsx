@@ -3,8 +3,10 @@ import { GridProps,GridContext, AutoGridContext } from "./types/grid.props";
 import React, { CSSProperties, useEffect, useState} from "react";
 import styles from './styles/grid.module.scss';
 import { useScreenSize } from "./hooks/useScreenSize";
+import { Row } from "./Row";
+import { Col } from "./Col";
 
-export const Grid:React.FC<GridProps> = factory<GridProps>((props) => {
+export const Grid = factory<GridProps, {Row:typeof Row,Col:typeof Col}>((props) => {
   const {children, className, style, rowGap=0} = props;
   const [wrap, setWrap] = useState<boolean>(true);
   const classes = [
@@ -35,4 +37,4 @@ export const Grid:React.FC<GridProps> = factory<GridProps>((props) => {
       </AutoGridContext.Provider>
     </div>
   )
-},'Grid')
+},'Grid', {Row,Col})

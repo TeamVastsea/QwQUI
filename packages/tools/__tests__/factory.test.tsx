@@ -1,10 +1,9 @@
 import { factory } from "../factory"
-import React, { useState } from 'react';
 import { render } from '@testing-library/react';
 
 describe('Factory', () => {
   it('Should defined', () => {
-    const Comp = factory<{ title: string }>((props) => {
+    const Comp = factory((props:{ title: string }) => {
       return (
         <h1>{props.title}</h1>
       )
@@ -14,7 +13,7 @@ describe('Factory', () => {
   })
   it('should skip re-rendering if props are unchanged', () => {
     const reRenderingFlag = jest.fn()
-    const Comp = factory<{ name: string, age: number }>((props) => {
+    const Comp = factory((props:{ name: string, age: number }) => {
       reRenderingFlag();
       return (
         <h1>{props.name}</h1>
@@ -27,5 +26,19 @@ describe('Factory', () => {
     expect(reRenderingFlag).toHaveBeenCalledTimes(2);
     rerender(<Comp name={'Tom'} age={19} />)                      // name is 'Tom' not 'Jack' so re-render
     expect(reRenderingFlag).toHaveBeenCalledTimes(3);
+  })
+  it('type test',()=>{
+    const child = factory((props:{age: number}) => {
+      return (
+        <h1>{props.age}</h1>
+      )
+    }, 'Comp.Child');
+    const Comp = factory((props: { name: string, age: number }) => {
+      return (
+        <h1>{props.name}</h1>
+      )
+    }, 'test', {child});
+    const {baseElement} = render(<Comp.child age={16} />)
+    expect(baseElement.textContent).toBe("16")
   })
 })
