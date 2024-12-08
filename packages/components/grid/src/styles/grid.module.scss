@@ -1,14 +1,20 @@
 :root {
   --grid-row-gap: 0;
   --grid-wrap: nowrap;
+  --grid-flow: column;
+  --grid-col-gap: 0;
 }
 $grid-row-gap: calc(var(--grid-row-gap) * 1px);
+$grid-col-gap: calc(var(--grid-col-gap) * 1px);
 $grid-wrap: var(--grid-wrap);
+$grid-flow: var(--grid-flow);
 .grid {
   display: flex;
-  flex-flow: column;
+  flex-flow: $grid-flow;
   flex-wrap: $grid-wrap;
   row-gap: $grid-row-gap;
+  column-gap: $grid-col-gap;
+  width: 100%;
   &--rtl {
     direction: rtl;
   }

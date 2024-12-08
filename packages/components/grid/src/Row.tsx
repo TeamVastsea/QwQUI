@@ -20,7 +20,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
     wrap=false
   } = props;
   const {cols} = useContext(GridContext)
-  const {setWrap} = useContext(AutoGridContext);
+  const {setFlow, setUnSimpleMode} = useContext(AutoGridContext);
   const [cssVars, setCssVars]  = useState<CSSProperties>({
     '--grid-row-cols': cols
   } as CSSProperties)
@@ -34,7 +34,10 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
       '--grid-row-wrap': wrap ? 'wrap' : 'no-wrap'
     } as CSSProperties)
   }, [cols,justify,align,wrap]);
-  useEffect(()=>{setWrap(true);}, [])
+  useEffect(()=>{
+    setFlow('column');
+    setUnSimpleMode();
+  }, [])
   const classes = [className, styles.row].join(' ');
   return (
     <div style={{

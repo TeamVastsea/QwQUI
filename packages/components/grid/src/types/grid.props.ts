@@ -24,11 +24,20 @@ export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
    * @default 0
    */
   rowGap?: number;
+
+
+  /**
+   * @zh 精简网格下, 列于列之间的间距
+   * @en Gap of col-to-col when not `Grid.Row` Subcomponent
+   * @default 0
+   */
+  colGap?: number;
 }  & {
   [size in ScreenSize]?: number;
 }
 export type AutoGridContextState = {
-  setWrap?: React.Dispatch<React.SetStateAction<boolean>>
+  setFlow?: React.Dispatch<React.SetStateAction<'column' | 'row'>>;
+  setUnSimpleMode?: () => void
 }
 export const AutoGridContext = createContext<AutoGridContextState>({});
 export const GridContext = createContext<GridContextState>({});

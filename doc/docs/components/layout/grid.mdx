@@ -42,14 +42,15 @@
 
 | 名称 | 类型 | 简介 | 默认值 |
 |:--:|:--:|:--:|:--:|
-| cols| `number`| 总列数 | 24|
-| rowGap|`number`| 行与行之间的间距 | 0
+| cols| `number?`| 总列数 | 24|
+| rowGap|`number?`| 行与行之间的间距 | 0
 | xs | `number?` | 当屏幕 < 576px 响应式的列数 | -
 | sm | `number?` | 当屏幕 >= 576px  响应式的列数 | -
 | md | `number?` | 当屏幕 >= 768px 响应式的列数 | -
 | lg | `number?` | 当屏幕 >= 992px 响应式的列数 | -
 | xl | `number?` | 当屏幕 >= 1200px 响应式的列数 | -
 | xxl | `number?` | 当屏幕 >= 1600px 响应式的列数 | -
+| colGap | `number?` | 精简网格模式下列于列之间的间距 | 0
 
 ### Row
 
@@ -64,7 +65,7 @@
 
 | 名称 | 类型 | 简介 | 默认值 |
 |:--:|:--:|:--:|:--:|
-| span | `number\|'auto'` | 单元格占位格数 | 0 |
+| span | `number\|'auto'` | 单元格占位格数,如果为0则不显示 | 0 |
 | offset | `number?` | 单元格向右移动大小,小于零则为向左移动 | 0
 | flex | `boolean?` | flex属性值 | -
 
