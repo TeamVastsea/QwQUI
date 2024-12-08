@@ -4,28 +4,47 @@ import React, { useContext, useEffect, useState } from "react";
 import { GridContext } from "./types/grid.props";
 import { RowContext } from "./Row";
 
-const getDisplay = (span: number | 'auto') => {
-  return span === 'auto' ? 'block' : span > 0 ? 'block' : 'none';
+const getDisplay = (span: number | 'auto',flex?:string) => {
+  return span === 'auto' ? 'block' : (span === 0 && !flex) ? 'none' : 'block';
 }
 
 export const Col:React.FC<ColProps> = factory<ColProps>((props)=>{
-  const {cols} = useContext(GridContext);
+  const {cols, currentSize} = useContext(GridContext);
   const {gap} = useContext(RowContext);
-  const {children,className,style, span=0, flex, offset:propsOffset=0} = props;
+  const {
+    children,
+    className,
+    style,
+    span=0,
+    flex,
+    offset:propsOffset=0,
+    ...sizes
+  } = props;
+  const [_span, setSpan] = useState(span);
   const [width, setWidth] = useState('');
   const [offset, setOffset] = useState('')
   const [display, setDisplay] = useState(
-    getDisplay(span)
+    getDisplay(_span)
   );
   useEffect(()=>{
-    if (span === 'auto') {
+    if (_span === 'auto') {
       setWidth('auto');
       return;
     }
-    setWidth(`${(span / cols)*100}%`)
+    setWidth(`${(_span / cols)*100}%`)
     setOffset(`${(propsOffset / cols) * 100}%`)
-    setDisplay(getDisplay(span));
-  }, [span,cols,offset])
+    setDisplay(getDisplay(_span,flex));
+  }, [_span, cols, offset, propsOffset,flex])
+  useEffect(()=>{
+    if (sizes[currentSize] === undefined){
+      setSpan(span);
+      return;
+    }
+    setSpan(sizes[currentSize])
+  }, [currentSize, sizes, span]);
+  useEffect(()=>{
+    setSpan(span);
+  }, [span]);
   return (
     <div className={className} style={{
       ...style,

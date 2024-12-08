@@ -30,6 +30,11 @@
 
 <code src="./grid/breakPoint.tsx" />
 
+
+## 扩展断点大小
+
+<code src="./grid/external-size.tsx" />
+
 ## 精简网格
 
 如果您不需要手动添加行数, 那么您可以直接在 `Grid` 组件下使用 `Col` 组件
@@ -51,6 +56,7 @@
 | xl | `number?` | 当屏幕 >= 1200px 响应式的列数 | -
 | xxl | `number?` | 当屏幕 >= 1600px 响应式的列数 | -
 | colGap | `number?` | 精简网格模式下列于列之间的间距 | 0
+| externalSizes | `{[x:string]: Range}` | 扩展的断点大小 | 0
 
 ### Row
 
@@ -74,4 +80,6 @@
 ```ts
 type Align = 'start' | 'center' | 'end' | 'stretch';
 type Justify = 'start' | 'center' | 'end' | 'space-around' | 'space-between';
+// (left, right]
+type Range = [number, number];
 ```

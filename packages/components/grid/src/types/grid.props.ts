@@ -1,6 +1,6 @@
 import { PropsTypeOptional } from "@qwqui/tools";
 import { createContext } from "react";
-import { ScreenSize } from "./common.props";
+import { Range, ScreenSize } from "./common.props";
 
 export type GridContextState = {
   /**
@@ -9,6 +9,12 @@ export type GridContextState = {
     * @default 24
   */
   cols?: number;
+
+  /**
+   * @zh 当前所处的断点
+   * @en current breakpoint
+   */
+  currentSize?: string;
 }
 
 export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
@@ -32,8 +38,19 @@ export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
    * @default 0
    */
   colGap?: number;
+
+  /**
+   * @zh 额外的断点大小, (minWidth,maxWidth]
+   * @en Extra breakpoint size, (minWidth,maxWidth]
+   */
+  externalSizes?: {
+    [x:string]: Range;
+  }
 }  & {
   [size in ScreenSize]?: number;
+}  & {
+  // screen size (px)
+  [size: number]: number;
 }
 export type AutoGridContextState = {
   setFlow?: React.Dispatch<React.SetStateAction<'column' | 'row'>>;

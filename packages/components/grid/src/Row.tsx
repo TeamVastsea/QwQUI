@@ -17,7 +17,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
     style,
     justify='start',
     align='start',
-    wrap=false
+    wrap=false,
   } = props;
   const {cols} = useContext(GridContext)
   const {setFlow, setUnSimpleMode} = useContext(AutoGridContext);
@@ -33,7 +33,7 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
       '--grid-row-align': align,
       '--grid-row-wrap': wrap ? 'wrap' : 'no-wrap'
     } as CSSProperties)
-  }, [cols,justify,align,wrap]);
+  }, [cols, justify, align, wrap, gap]);
   useEffect(()=>{
     setFlow('column');
     setUnSimpleMode();

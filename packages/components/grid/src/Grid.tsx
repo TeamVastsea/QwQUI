@@ -14,7 +14,9 @@ export const Grid = factory<GridProps, {Row:typeof Row,Col:typeof Col}>((props) 
     className,
     styles.grid
   ].join(' ');
-  const {currentSize} = useScreenSize();
+  const {currentSize} = useScreenSize({
+    externalSize: props.externalSizes
+  });
   const [cols, setCols] = useState(props.cols ?? 24)
 
   const unSimpleGrid = () => setSimpleGrid(false);
@@ -37,7 +39,8 @@ export const Grid = factory<GridProps, {Row:typeof Row,Col:typeof Col}>((props) 
         setUnSimpleMode: unSimpleGrid
       }}>
         <GridContext.Provider value={{
-          cols
+          cols,
+          currentSize
         }}>
           {children}
         </GridContext.Provider>

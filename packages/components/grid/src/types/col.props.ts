@@ -1,4 +1,5 @@
 import { PropsTypeOptional } from "@qwqui/tools";
+import { ScreenSize } from "./common.props";
 
 export type ColProps = Exclude<PropsTypeOptional, 'w' | 'h'> & {
   /**
@@ -19,4 +20,8 @@ export type ColProps = Exclude<PropsTypeOptional, 'w' | 'h'> & {
    * @default undefined
    */
   flex?: string;
+}  & {
+  [size in ScreenSize]?: number
+} & {
+  [size: string]: number
 };
