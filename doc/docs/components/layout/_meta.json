@@ -13,5 +13,10 @@
     "type": "file",
     "name": "flex",
     "label": "Flex"
+  },
+  {
+    "type": "file",
+    "name": "grid",
+    "label": "Grid"
   }
 ]
