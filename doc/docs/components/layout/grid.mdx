@@ -1,0 +1,93 @@
+# Grid
+
+## 基本用法
+
+<code src="./grid/basic-usage.tsx"/>
+
+## 断点布局
+
+`Grid` 组件允许传入 `cols` 参数, 以在不同屏幕大小时使用不同的总列宽. `cols` 参数允许传入数字, 表示总列宽在所有屏幕大小下均不变。
+
+如果需要追加/覆盖断点, 则设置 `Grid` 组件的 `breakpoints` 参数. 默认断点为 `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.他们的范围是
+
+- `0px    <= width < 320px`  时, 没有任何断点生效, 如果设置了`cols.base`则`cols.base`作为兜底大小, 否则则会使用默认的24列布局
+- `320px  <= width < 576px`  时, `xs`  断点生效
+- `576px  <= width < 768px`  时, `sm`  断点生效
+- `768px  <= width < 992px`  时, `md`  断点生效
+- `992px  <= width < 1200px` 时, `lg`  断点生效
+- `1200px <= width < 1600px` 时, `xl`  断点生效
+- `1600px <= width < Inf`    时, `xxl` 断点生效
+
+<code src="./grid/breakpoint-layout.tsx" />
+
+## 对齐
+
+通过设置 `Grid.Row` 组件的 `justify` 参数以控制每行在**水平**方向中如何放置列. `align` 参数则是控制每行该如何在**垂直**放置列
+
+<code src="./grid/align.tsx" />
+
+## 简单网格
+
+如果您不需要控制行, 那么可以直接在 `Grid` 组件下使用 `Grid.Col` 组件.
+
+<code src="./grid/simple-grid.tsx" />
+
+## 响应式列
+
+如果你需要在大于某个断点时修改列的大小, 可以为 `Col` 组件的 `span` 参数传入一个对象. 该功能当且仅当不为简单网格时生效
+
+<code src="./grid/dynamic-col-size.tsx" />
+
+## Flex
+
+<code src="./grid/flex.tsx" />
+
+## Props
+
+### Grid
+
+| 名称 | 类型 | 介绍 | 默认值
+| :--:| :--:|:--:|:--:|
+|breakpoints|`Partial<BreakPoints>`|断点|DEFAULT_BREAKPONITS|
+|cols|ResponsiveValue|总列数|24|
+|verticalSpcing|ResponsiveValue\|number|垂直方向间距|0
+|horizontalSpacing|ResponsiveValue\|number|水平方向间距|0
+|onBreakPoint| `(size:string) => void` | 当断点值发生修改时触发的事件
+
+### Row
+
+| 名称 | 类型 | 简介 | 默认值 |
+|:--:|:--:|:--:|:--:|
+| justify | `Justify?` | 水平对齐方式 | 'start' |
+| align  | `Align?` | 垂直对齐方式 | 'start'
+| wrap | `boolean?` | 是否换行 | false
+| gap | `number?` | 列与列之间的间隔 | 0
+
+### Col
+
+| 名称 | 类型 | 介绍 | 默认值
+| :--:| :--:|:--:|:--:|
+|span | `number\|ResponsiveValue<number>` | 占据的列数 | 0
+|offset | `number` | 栅格向右移动大小,小于零则为向左移动 | 0
+|flex | `string\|ResponsiveValue<string>` |flex属性值 | undefined
+
+## Type
+
+```ts
+export type BreakpointLiteral = `${number}px` | `${number}` | number
+
+export type DefaultBreakPoints = 'xs'|'sm'|'md'|'lg'|'xl'|'xxl';
+export type BreakPoints = {
+  [breakpoint in DefaultBreakPoints]?: BreakpointLiteral
+} & {
+  [x:string]: BreakpointLiteral
+}
+
+export type ResponsiveValue<T=number> = {
+  [breakpoint in DefaultBreakPoints]?: T;
+} & {
+  [x:string]: T;
+} & {
+  base: T;
+}
+```
