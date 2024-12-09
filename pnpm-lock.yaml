@@ -220,6 +220,9 @@ importers:
 
   packages/components/grid:
     dependencies:
+      '@shined/react-use':
+        specifier: ^1.11.0
+        version: 1.11.0(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -1440,6 +1443,26 @@ packages:
 
   '@shikijs/vscode-textmate@9.3.0':
     resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
+
+  '@shined/react-use@1.11.0':
+    resolution: {integrity: sha512-oAdEUUQALX9rXsPWQ2LTDxNWXJeFc8FS5cDCXhwDNhc4mN6NEwT9JsqxrFvhglGDTNdC61IFX4XnIEvRtHtYmA==}
+    peerDependencies:
+      '@types/react': '>= 16.8.0'
+      '@types/react-dom': '>= 16.8.0'
+      '@types/web-bluetooth': '*'
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+      '@types/web-bluetooth':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -6938,6 +6961,12 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@9.3.0': {}
+
+  '@shined/react-use@1.11.0(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    optionalDependencies:
+      '@types/react': 18.3.9
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@sinclair/typebox@0.27.8': {}
 

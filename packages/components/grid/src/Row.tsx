@@ -10,17 +10,17 @@ export type RowContextState = {
 export const RowContext = createContext<RowContextState>({});
 
 export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
+  const {cols,colGap} = useContext(GridContext)
   const {
     children,
     className,
-    gap,
+    gap=colGap,
     style,
     justify='start',
     align='start',
     wrap=false,
   } = props;
-  const {cols} = useContext(GridContext)
-  const {setFlow, setUnSimpleMode} = useContext(AutoGridContext);
+  const {setUnSimpleMode} = useContext(AutoGridContext);
   const [cssVars, setCssVars]  = useState<CSSProperties>({
     '--grid-row-cols': cols
   } as CSSProperties)
@@ -35,7 +35,6 @@ export const Row:React.FC<RowProps> = factory<RowProps>((props)=>{
     } as CSSProperties)
   }, [cols, justify, align, wrap, gap]);
   useEffect(()=>{
-    setFlow('column');
     setUnSimpleMode();
   }, [])
   const classes = [className, styles.row].join(' ');

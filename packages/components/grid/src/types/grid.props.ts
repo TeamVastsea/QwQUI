@@ -1,6 +1,5 @@
 import { PropsTypeOptional } from "@qwqui/tools";
 import { createContext } from "react";
-import { Range, ScreenSize } from "./common.props";
 
 export type GridContextState = {
   /**
@@ -15,45 +14,37 @@ export type GridContextState = {
    * @en current breakpoint
    */
   currentSize?: string;
-}
 
-export type GridProps = Exclude<PropsTypeOptional, 'w'|'h'> & {
-  /**
-   * @zh 总列数
-   * @en Total number of columns
-   * @default 24
-   */
-  cols?: number;
-  /**
-   * @zh 行与行之间的间隔
-   * @en Gap of row-to-row
-   * @default 0
-   */
   rowGap?: number;
-
-
-  /**
-   * @zh 精简网格下, 列于列之间的间距
-   * @en Gap of col-to-col when not `Grid.Row` Subcomponent
-   * @default 0
-   */
   colGap?: number;
-
-  /**
-   * @zh 额外的断点大小, (minWidth,maxWidth]
-   * @en Extra breakpoint size, (minWidth,maxWidth]
-   */
-  externalSizes?: {
-    [x:string]: Range;
-  }
-}  & {
-  [size in ScreenSize]?: number;
-}  & {
-  // screen size (px)
-  [size: number]: number;
 }
+export type BreakpointLiteral = `${number}px` | `${number}` | number
+
+export type DefaultBreakPoints = 'xs'|'sm'|'md'|'lg'|'xl'|'xxl';
+export type BreakPoints = {
+  [breakpoint in DefaultBreakPoints]?: BreakpointLiteral
+} & {
+  [x:string]: BreakpointLiteral
+}
+
+export type ResponsiveValue<T=number> = {
+  [breakpoint in DefaultBreakPoints]?: T;
+} & {
+  [x:string]: T;
+} & {
+  base: T;
+}
+
+export type GridProps<BPS=Partial<BreakPoints>> = {
+  breakpoints: BPS;
+  cols: ResponsiveValue | number;
+  verticalSpcing: ResponsiveValue | number;
+  horizontalSpacing: ResponsiveValue | number;
+  onBreakPoint: (breakpoint: string) => void;
+} & Exclude<PropsTypeOptional, 'w' | 'h'>
+
+
 export type AutoGridContextState = {
-  setFlow?: React.Dispatch<React.SetStateAction<'column' | 'row'>>;
   setUnSimpleMode?: () => void
 }
 export const AutoGridContext = createContext<AutoGridContextState>({});

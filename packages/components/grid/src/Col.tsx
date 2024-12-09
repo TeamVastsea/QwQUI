@@ -20,36 +20,44 @@ export const Col:React.FC<ColProps> = factory<ColProps>((props)=>{
     offset:propsOffset=0,
     ...sizes
   } = props;
-  const [_span, setSpan] = useState(span);
+  const [_span, setSpan] = useState(typeof span === 'number' ? span : span[currentSize] ?? (span['base'] || 0));
   const [width, setWidth] = useState('');
   const [offset, setOffset] = useState('')
   const [display, setDisplay] = useState(
     getDisplay(_span)
   );
   useEffect(()=>{
-    if (_span === 'auto') {
-      setWidth('auto');
-      return;
-    }
     setWidth(`${(_span / cols)*100}%`)
     setOffset(`${(propsOffset / cols) * 100}%`)
-    setDisplay(getDisplay(_span,flex));
-  }, [_span, cols, offset, propsOffset,flex])
+    setDisplay(
+      getDisplay(
+        _span,
+        typeof flex === 'string' ? flex : flex?.[currentSize] ?? flex?.['base'] ?? `0 0 ${width}`
+      )
+    );
+  }, [_span, cols, offset, propsOffset, flex, currentSize, width])
   useEffect(()=>{
-    if (sizes[currentSize] === undefined){
+    if (typeof span === 'number'){
       setSpan(span);
+      return
+    }
+    if (span[currentSize] == null){
+      if (span?.['base'] == null){
+        return;
+      }
+      setSpan(span['base']);
       return;
     }
-    setSpan(sizes[currentSize])
+    setSpan(span[currentSize]);
   }, [currentSize, sizes, span]);
   useEffect(()=>{
-    setSpan(span);
-  }, [span]);
+    setSpan(typeof span === 'number' ? span : span[currentSize] ?? (span['base'] || 0));
+  }, [span,currentSize]);
   return (
     <div className={className} style={{
       ...style,
       'width': width,
-      flex: flex ?? `0 0 ${width}`,
+      flex: typeof flex === 'string' ? flex : flex?.[currentSize] ?? flex?.['base'] ?? `0 0 ${width}`,
       marginLeft: offset,
       display: display,
       paddingLeft: `${gap/2}px`,

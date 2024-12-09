@@ -15,7 +15,4 @@ $grid-flow: var(--grid-flow);
   row-gap: $grid-row-gap;
   column-gap: $grid-col-gap;
   width: 100%;
-  &--rtl {
-    direction: rtl;
-  }
 }

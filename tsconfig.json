@@ -19,7 +19,7 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "emitDeclarationOnly": false,
-    "lib": ["ES2015.Promise", "ES2015", "DOM"]
+    "lib": ["ES2022", "DOM"]
   },
   "exclude": [
     "node_modules",

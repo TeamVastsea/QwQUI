@@ -28,5 +28,8 @@
   },
   "devDependencies": {
     "@qwqui/tools": "workspace:^"
+  },
+  "dependencies": {
+    "@shined/react-use": "^1.11.0"
   }
 }
