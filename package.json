@@ -17,7 +17,7 @@
   "homepage": "https://ui.qwq.my",
   "bugs": "https://github.com/TeamVastsea/QwQUI/issues",
   "dependencies": {
-    "@microsoft/api-extractor": "^7.47.9",
+    "@microsoft/api-extractor": "^7.52.10",
     "@rsbuild/plugin-sass": "^1.0.1",
     "@rslib/core": "^0.0.8",
     "@swc/jest": "^0.2.36",
